@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace UI.Desktop
 {
@@ -93,6 +94,11 @@ namespace UI.Desktop
                 UsuarioActual.State = BusinessEntity.States.Modified;
             }
 
+            else if(mf == "Baja")
+            {
+                UsuarioActual.State = BusinessEntity.States.Deleted;
+            }
+
         }
 
         public override void GuardarCambios()
@@ -106,11 +112,21 @@ namespace UI.Desktop
         {
             //TERMINAR LA VALIDACION, NO SEAS BOLUDO ROMERO
             bool o = false;
+            bool f = false;
             if(txtNombre.Text != "" && txtApellido.Text != "" && txtUsuario.Text != "" && txtEmail.Text != "" && txtClave.Text != "" && txtConfirmarClave.Text != "")
             {
                 if(txtConfirmarClave.ToString() == txtClave.ToString() )
                 {
-                    o = true;
+                    if (txtConfirmarClave.TextLength >= 1)
+                    {
+                        o = true;
+                    }
+
+                    else
+                    {
+                        Notificar("Error de contraseña", "La contraseña debe ser mayor de 8 caracteres!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        o = false;
+                    }              
                 }
 
                 else
@@ -118,12 +134,28 @@ namespace UI.Desktop
                     Notificar("Error de contraseña", "Las contraseñas no coinciden!", MessageBoxButtons.OK , MessageBoxIcon.Error);
                     o = false;
                 }
-            } //TERMINAR LA VALIDACION, NO SEAS BOLUDO ROMERO
+            } 
             else
             {
                 Notificar("Error","Campos vacios!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            return o; 
+
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtUsuario.Text != "" && txtEmail.Text != "" && txtClave.Text != "" && txtConfirmarClave.Text != "")
+            {
+                String sFormato;
+                sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+                if (Regex.IsMatch(txtEmail.ToString(), sFormato))
+                {
+                    f = true;
+                }
+                else
+                {
+                    f = false;
+                    Notificar("Error", "El email ingresado no es correcto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            return f && o;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

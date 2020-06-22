@@ -19,6 +19,7 @@ namespace UI.Desktop
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
             this.dgvUsuarios.MultiSelect = false;
+            this.dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Listar();
         }
 
@@ -53,18 +54,32 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            //int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            UsuarioDesktop ud = new UsuarioDesktop(1, ApplicationForm.ModoForm.Modificacion);
-            ud.ShowDialog();
-            this.Listar();
+            if(this.dgvUsuarios.SelectedRows.Count > 0) 
+            {
+                int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                ud.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Elija una fila para editarla");
+            }
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
-            ud.ShowDialog();
-            Listar();
+            if (this.dgvUsuarios.SelectedRows.Count > 0)
+            {
+                int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+                ud.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Elija una fila para eliminarla");
+            }
         }
     }
 }
