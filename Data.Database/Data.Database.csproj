@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -47,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Net\TP2 L03\Business.Entities\Business.Entities.csproj">
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{562c87aa-afc3-4d1b-b3fd-58e2386ef914}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
