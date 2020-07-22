@@ -12,22 +12,22 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class Planes : Form
     {
-        public Usuarios()
+        public Planes()
         {
             InitializeComponent();
-            this.dgvUsuarios.AutoGenerateColumns = false;
-            this.dgvUsuarios.MultiSelect = false;
-            this.dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPlanes.AutoGenerateColumns = false;
+            this.dgvPlanes.MultiSelect = false;
+            this.dgvPlanes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Listar();
         }
 
 
         public void Listar()
         {
-            Business.Logic.UsuarioLogic ul = new Business.Logic.UsuarioLogic();
-            this.dgvUsuarios.DataSource = ul.GetAll();
+            Business.Logic.PlanLogic pl = new Business.Logic.PlanLogic();
+            this.dgvPlanes.DataSource = pl.GetAll();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
@@ -47,18 +47,18 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop ud = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
-            ud.ShowDialog();
+            PlanDesktop pd = new PlanDesktop(ApplicationForm.ModoForm.Alta);
+            pd.ShowDialog();
             this.Listar();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if(this.dgvUsuarios.SelectedRows.Count > 0) 
+            if(this.dgvPlanes.SelectedRows.Count > 0) 
             {
-                int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                ud.ShowDialog();
+                int ID = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+                PlanDesktop pd = new PlanDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                pd.ShowDialog();
                 this.Listar();
             }
             else
@@ -69,10 +69,10 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count > 0)
+            if (this.dgvPlanes.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+                int ID = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+                PlanDesktop ud = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
                 ud.ShowDialog();
                 this.Listar();
             }

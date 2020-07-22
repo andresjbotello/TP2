@@ -31,8 +31,9 @@
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_listaDeUsuarios = new System.Windows.Forms.Button();
             this.btn_listaDeMaterias = new System.Windows.Forms.Button();
+            this.btn_listaDePlanes = new System.Windows.Forms.Button();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,15 +62,15 @@
             this.mnuSalir.Text = "Salir";
             this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
             // 
-            // button1
+            // btn_listaDeUsuarios
             // 
-            this.button1.Location = new System.Drawing.Point(61, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Lista de Usuarios";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btn_abrirDGV);
+            this.btn_listaDeUsuarios.Location = new System.Drawing.Point(61, 57);
+            this.btn_listaDeUsuarios.Name = "btn_listaDeUsuarios";
+            this.btn_listaDeUsuarios.Size = new System.Drawing.Size(151, 23);
+            this.btn_listaDeUsuarios.TabIndex = 3;
+            this.btn_listaDeUsuarios.Text = "Lista de Usuarios";
+            this.btn_listaDeUsuarios.UseVisualStyleBackColor = true;
+            this.btn_listaDeUsuarios.Click += new System.EventHandler(this.btn_abrirDGV);
             // 
             // btn_listaDeMaterias
             // 
@@ -81,13 +82,24 @@
             this.btn_listaDeMaterias.UseVisualStyleBackColor = true;
             this.btn_listaDeMaterias.Click += new System.EventHandler(this.btn_listaDeMaterias_Click);
             // 
+            // btn_listaDePlanes
+            // 
+            this.btn_listaDePlanes.Location = new System.Drawing.Point(61, 158);
+            this.btn_listaDePlanes.Name = "btn_listaDePlanes";
+            this.btn_listaDePlanes.Size = new System.Drawing.Size(151, 23);
+            this.btn_listaDePlanes.TabIndex = 7;
+            this.btn_listaDePlanes.Text = "Lista de Planes";
+            this.btn_listaDePlanes.UseVisualStyleBackColor = true;
+            this.btn_listaDePlanes.Click += new System.EventHandler(this.btn_listaDePlanes_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_listaDePlanes);
             this.Controls.Add(this.btn_listaDeMaterias);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_listaDeUsuarios);
             this.Controls.Add(this.mnsPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnsPrincipal;
@@ -107,7 +119,8 @@
         private System.Windows.Forms.MenuStrip mnsPrincipal;
         private System.Windows.Forms.ToolStripMenuItem mnuArchivo;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_listaDeUsuarios;
         private System.Windows.Forms.Button btn_listaDeMaterias;
+        private System.Windows.Forms.Button btn_listaDePlanes;
     }
 }

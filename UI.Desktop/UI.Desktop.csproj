@@ -75,6 +75,12 @@
     <Compile Include="Materia\MateriaDesktop.Designer.cs">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Planes\PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Planes\PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="Materia\Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planes\Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Planes\Planes.Designer.cs">
+      <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Usuarios.cs">
       <SubType>Form</SubType>
@@ -107,11 +119,17 @@
     <EmbeddedResource Include="Materia\MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Planes\PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Usuario\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materia\Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planes\Planes.resx">
+      <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
@@ -149,5 +167,6 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

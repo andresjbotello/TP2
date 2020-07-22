@@ -111,34 +111,32 @@ namespace Data.Database
         }
 
 
-        /*protected void Update(Materia materia)
+        protected void Update(Materia materia)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE materias SET nombre_usuario = @nombre_usuario, clave = @clave," +
-                    "habilitado = @habilitado, nombre=@nombre, apellido=@apellido, email=@email " +
-                    "WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("UPDATE materias SET desc_materia = @desc_materia, hs_semanales = @hs_semanales," +
+                    "hs_totales = @hs_totales, id_plan=@id_plan" +
+                    "WHERE id_materia=@id", SqlConn);
 
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
-                cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
-                cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
-                cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IDPlan;
+                cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.Descripcion;
+                cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HSSemanales;
+                cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HSTotales;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al actualizar el usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar la materia", Ex);
                 throw ExcepcionManejada;
             }
             finally
             {
                 this.CloseConnection();
             }
-        }*/
+        }
 
         protected void Insert(Materia materia)
         {
@@ -150,7 +148,7 @@ namespace Data.Database
                     "values(@desc_materia,@hs_semanales,@hs_totales,@id_plan)" +
                     "select @@identity", SqlConn);
 
-                cmdSave.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia.ID;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IDPlan;
                 cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.Descripcion;
                 cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HSSemanales;

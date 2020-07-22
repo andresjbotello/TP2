@@ -42,5 +42,11 @@ namespace UI.Desktop
             UI.Desktop.Materias mtr = new UI.Desktop.Materias();
             mtr.ShowDialog();
         }
+
+        private void btn_listaDePlanes_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Planes pln = new Planes();
+            pln.ShowDialog();
+        }
     }
 }

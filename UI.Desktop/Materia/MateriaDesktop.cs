@@ -83,6 +83,12 @@ namespace UI.Desktop
                 MateriaActual.Descripcion = this.txtMateria.Text;
                 MateriaActual.HSSemanales = Convert.ToInt32(this.txtHSSemanales.Text);
                 MateriaActual.HSTotales = Convert.ToInt32(this.txtHSTotales.Text);
+                MateriaActual.State = BusinessEntity.States.Modified;
+            }
+
+            else if (mf == "Baja")
+            {
+                MateriaActual.State = BusinessEntity.States.Deleted;
             }
 
         }
