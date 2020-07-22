@@ -36,5 +36,11 @@ namespace UI.Desktop
             UI.Desktop.Usuarios usr = new UI.Desktop.Usuarios();
             usr.ShowDialog();
         }
+
+        private void btn_listaDeMaterias_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Materias mtr = new UI.Desktop.Materias();
+            mtr.ShowDialog();
+        }
     }
 }

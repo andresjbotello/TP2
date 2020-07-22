@@ -32,6 +32,7 @@
             this.mnuArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_listaDeMaterias = new System.Windows.Forms.Button();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,11 +71,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_abrirDGV);
             // 
+            // btn_listaDeMaterias
+            // 
+            this.btn_listaDeMaterias.Location = new System.Drawing.Point(61, 109);
+            this.btn_listaDeMaterias.Name = "btn_listaDeMaterias";
+            this.btn_listaDeMaterias.Size = new System.Drawing.Size(151, 23);
+            this.btn_listaDeMaterias.TabIndex = 5;
+            this.btn_listaDeMaterias.Text = "Lista de Materias";
+            this.btn_listaDeMaterias.UseVisualStyleBackColor = true;
+            this.btn_listaDeMaterias.Click += new System.EventHandler(this.btn_listaDeMaterias_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_listaDeMaterias);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mnsPrincipal);
             this.IsMdiContainer = true;
@@ -96,5 +108,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuArchivo;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_listaDeMaterias;
     }
 }

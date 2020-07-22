@@ -14,22 +14,22 @@ using System.Text.RegularExpressions;
 
 namespace UI.Desktop
 {
-    public partial class UsuarioDesktop : ApplicationForm
+    public partial class ComisionDesktop : ApplicationForm
     {
         private Business.Entities.Usuario _usuarioActual;
         public Usuario UsuarioActual { get => _usuarioActual; set => _usuarioActual = value; }
 
-        public UsuarioDesktop()
+        public ComisionDesktop()
         {
             InitializeComponent();
         }
 
-        public UsuarioDesktop(ModoForm modo) : this()
+        public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
         }
 
-        public UsuarioDesktop(int ID, ModoForm modo) : this()
+        public ComisionDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
             UsuarioLogic ul = new UsuarioLogic();
