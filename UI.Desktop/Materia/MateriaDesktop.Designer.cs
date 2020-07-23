@@ -186,7 +186,7 @@
             this.ClientSize = new System.Drawing.Size(633, 330);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MateriaDesktop";
-            this.Text = "MateriaDesktop";
+            this.Text = "Informacion De Materia";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

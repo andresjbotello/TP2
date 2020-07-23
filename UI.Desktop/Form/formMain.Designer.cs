@@ -34,6 +34,7 @@
             this.btn_listaDeUsuarios = new System.Windows.Forms.Button();
             this.btn_listaDeMaterias = new System.Windows.Forms.Button();
             this.btn_listaDePlanes = new System.Windows.Forms.Button();
+            this.btn_listaDeEspecialidades = new System.Windows.Forms.Button();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,11 +93,22 @@
             this.btn_listaDePlanes.UseVisualStyleBackColor = true;
             this.btn_listaDePlanes.Click += new System.EventHandler(this.btn_listaDePlanes_Click);
             // 
+            // btn_listaDeEspecialidades
+            // 
+            this.btn_listaDeEspecialidades.Location = new System.Drawing.Point(61, 211);
+            this.btn_listaDeEspecialidades.Name = "btn_listaDeEspecialidades";
+            this.btn_listaDeEspecialidades.Size = new System.Drawing.Size(151, 23);
+            this.btn_listaDeEspecialidades.TabIndex = 9;
+            this.btn_listaDeEspecialidades.Text = "Lista de Especialidades";
+            this.btn_listaDeEspecialidades.UseVisualStyleBackColor = true;
+            this.btn_listaDeEspecialidades.Click += new System.EventHandler(this.btn_listaDeEspecialidades_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_listaDeEspecialidades);
             this.Controls.Add(this.btn_listaDePlanes);
             this.Controls.Add(this.btn_listaDeMaterias);
             this.Controls.Add(this.btn_listaDeUsuarios);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button btn_listaDeUsuarios;
         private System.Windows.Forms.Button btn_listaDeMaterias;
         private System.Windows.Forms.Button btn_listaDePlanes;
+        private System.Windows.Forms.Button btn_listaDeEspecialidades;
     }
 }

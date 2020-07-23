@@ -185,6 +185,5 @@ namespace Data.Database
             materia.State = BusinessEntity.States.Unmodified;
         }
 
-
     }
 }

@@ -75,11 +75,23 @@
     <Compile Include="Materia\MateriaDesktop.Designer.cs">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Planes\PlanDesktop.cs">
+    <Compile Include="Especialidades\EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Planes\PlanDesktop.Designer.cs">
+    <Compile Include="Especialidades\EspecialidadDesktop.Designer.cs">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidades\Especialiades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especialidades\Especialiades.Designer.cs">
+      <DependentUpon>Especialiades.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\UsuarioDesktop.cs">
       <SubType>Form</SubType>
@@ -93,10 +105,10 @@
     <Compile Include="Materia\Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Planes\Planes.cs">
+    <Compile Include="Plan\Planes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Planes\Planes.Designer.cs">
+    <Compile Include="Plan\Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Usuarios.cs">
@@ -119,8 +131,14 @@
     <EmbeddedResource Include="Materia\MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Planes\PlanDesktop.resx">
+    <EmbeddedResource Include="Especialidades\EspecialidadDesktop.resx">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especialidades\Especialiades.resx">
+      <DependentUpon>Especialiades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
@@ -128,7 +146,7 @@
     <EmbeddedResource Include="Materia\Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Planes\Planes.resx">
+    <EmbeddedResource Include="Plan\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Usuarios.resx">
