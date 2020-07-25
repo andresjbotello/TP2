@@ -35,6 +35,7 @@
             this.btn_listaDeMaterias = new System.Windows.Forms.Button();
             this.btn_listaDePlanes = new System.Windows.Forms.Button();
             this.btn_listaDeEspecialidades = new System.Windows.Forms.Button();
+            this.btnListaDeCursos = new System.Windows.Forms.Button();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,11 +104,22 @@
             this.btn_listaDeEspecialidades.UseVisualStyleBackColor = true;
             this.btn_listaDeEspecialidades.Click += new System.EventHandler(this.btn_listaDeEspecialidades_Click);
             // 
+            // btnListaDeCursos
+            // 
+            this.btnListaDeCursos.Location = new System.Drawing.Point(61, 265);
+            this.btnListaDeCursos.Name = "btnListaDeCursos";
+            this.btnListaDeCursos.Size = new System.Drawing.Size(151, 23);
+            this.btnListaDeCursos.TabIndex = 11;
+            this.btnListaDeCursos.Text = "Lista de Cursos";
+            this.btnListaDeCursos.UseVisualStyleBackColor = true;
+            this.btnListaDeCursos.Click += new System.EventHandler(this.btnListaDeCursos_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnListaDeCursos);
             this.Controls.Add(this.btn_listaDeEspecialidades);
             this.Controls.Add(this.btn_listaDePlanes);
             this.Controls.Add(this.btn_listaDeMaterias);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.Button btn_listaDeMaterias;
         private System.Windows.Forms.Button btn_listaDePlanes;
         private System.Windows.Forms.Button btn_listaDeEspecialidades;
+        private System.Windows.Forms.Button btnListaDeCursos;
     }
 }

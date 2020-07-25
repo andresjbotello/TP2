@@ -54,5 +54,11 @@ namespace UI.Desktop
             UI.Desktop.Especialiades esp = new Especialiades();
             esp.ShowDialog();
         }
+
+        private void btnListaDeCursos_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Cursos crs = new Cursos();
+            crs.ShowDialog();
+        }
     }
 }
