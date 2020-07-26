@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class Personas : BusinessEntity
+    public class Persona : BusinessEntity
     {
         private string _Apellido;
         private string _Direccion;
@@ -31,6 +31,39 @@ namespace Business.Entities
         public enum TipoPersonas
         {
             Alumno, Profesor, NoDocente
+        }
+
+        public void SetTipoPersonaById(int id)
+        {
+            switch (id)
+            {
+                case (int) TipoPersonas.Alumno:
+                    this.TipoPersona = TipoPersonas.Alumno;
+                    break;
+                case (int) TipoPersonas.Profesor:
+                    this.TipoPersona = TipoPersonas.Profesor;
+                    break;
+                case (int) TipoPersonas.NoDocente:
+                    this.TipoPersona = TipoPersonas.NoDocente;
+                    break;
+                default:
+                    throw new Exception("No existe el tipo persona especificado: " + id.ToString());
+            }
+        }
+
+        public int GetIDTipoPersona()
+        {
+            switch (this.TipoPersona)
+            {
+                case TipoPersonas.Alumno:
+                    return 0;
+                case TipoPersonas.Profesor:
+                    return 1;
+                case TipoPersonas.NoDocente:
+                    return 2;
+                default:
+                    throw new Exception("No existe el tipo persona especificado: " + this.TipoPersona.ToString());
+            }
         }
     }
 }

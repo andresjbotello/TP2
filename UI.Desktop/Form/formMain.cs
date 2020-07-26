@@ -60,5 +60,23 @@ namespace UI.Desktop
             UI.Desktop.Cursos crs = new Cursos();
             crs.ShowDialog();
         }
+
+        private void btnListaDePersonas_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Personas personas = new Personas();
+            personas.ShowDialog();
+        }
+
+        private void btnListaDeModulos_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Modulos mdl = new Modulos();
+            mdl.ShowDialog();
+        }
+
+        private void btnDocentesCursos_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.DocentesCursos docCursos = new DocentesCursos();
+            docCursos.ShowDialog();
+        }
     }
 }

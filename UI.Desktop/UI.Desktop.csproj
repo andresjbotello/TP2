@@ -81,6 +81,24 @@
     <Compile Include="Especialidades\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulo\ModuloDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\ModuloDesktop.Designer.cs">
+      <DependentUpon>ModuloDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteCurso\DocenteCursoDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocenteCurso\DocenteCursoDesktop.Designer.cs">
+      <DependentUpon>DocenteCursoDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteCurso\DocentesCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocenteCurso\DocentesCursos.Designer.cs">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plan\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +116,18 @@
     </Compile>
     <Compile Include="Curso\CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona\PersonaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Persona\PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo\Modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\Modulos.Designer.cs">
+      <DependentUpon>Modulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\UsuarioDesktop.cs">
       <SubType>Form</SubType>
@@ -123,6 +153,12 @@
     <Compile Include="Curso\Cursos.Designer.cs">
       <DependentUpon>Cursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persona\Personas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Persona\Personas.Designer.cs">
+      <DependentUpon>Personas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +182,15 @@
     <EmbeddedResource Include="Especialidades\EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo\ModuloDesktop.resx">
+      <DependentUpon>ModuloDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocenteCurso\DocenteCursoDesktop.resx">
+      <DependentUpon>DocenteCursoDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocenteCurso\DocentesCursos.resx">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Plan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Curso\CursoDesktop.resx">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persona\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo\Modulos.resx">
+      <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
@@ -166,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Curso\Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persona\Personas.resx">
+      <DependentUpon>Personas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
@@ -202,7 +256,13 @@
       <Project>{0f3228af-5492-4aef-b4a1-b97f75015d4b}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
+      <Project>{18D1C50F-58E0-4D94-B05B-4A95A146E6BB}</Project>
+      <Name>Data.Database</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
