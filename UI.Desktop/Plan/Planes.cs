@@ -14,9 +14,20 @@ namespace UI.Desktop
 {
     public partial class Planes : Form
     {
-        public Planes()
+        private Persona _persona;
+        public Persona Persona { get => _persona; set => _persona = value; }
+
+        public Planes(Persona p)
         {
             InitializeComponent();
+            Persona = p;
+            #region Validaciones
+            bool e = Validaciones.Permisos(Persona);
+            tsbNuevo.Enabled = e;
+            tsbEditar.Enabled = e;
+            tsbEliminar.Enabled = e;
+            btnActualizar.Enabled = e;
+            #endregion
             this.dgvPlanes.AutoGenerateColumns = false;
             this.dgvPlanes.MultiSelect = false;
             this.dgvPlanes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

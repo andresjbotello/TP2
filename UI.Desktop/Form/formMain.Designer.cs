@@ -39,6 +39,7 @@
             this.mnuModulos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDocentesConCursos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@
             this.mnuPersonas,
             this.mnuModulos,
             this.mnuDocentesConCursos,
-            this.mnuSalir});
+            this.mnuSalir,
+            this.salirToolStripMenuItem});
             this.mnuArchivo.Name = "mnuArchivo";
             this.mnuArchivo.Size = new System.Drawing.Size(60, 20);
             this.mnuArchivo.Text = "Archivo";
@@ -128,8 +130,15 @@
             // 
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(185, 22);
-            this.mnuSalir.Text = "Salir";
+            this.mnuSalir.Text = "Cerrar Sesion";
             this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // formMain
             // 
@@ -142,6 +151,7 @@
             this.Name = "formMain";
             this.Text = "Academia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.formMain_Shown);
             this.mnsPrincipal.ResumeLayout(false);
             this.mnsPrincipal.PerformLayout();
             this.ResumeLayout(false);
@@ -162,5 +172,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuModulos;
         private System.Windows.Forms.ToolStripMenuItem mnuDocentesConCursos;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

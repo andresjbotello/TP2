@@ -14,9 +14,23 @@ namespace UI.Desktop
 {
     public partial class Usuarios : Form
     {
-        public Usuarios()
+        private Persona _persona;
+        public Persona Persona { get => _persona; set => _persona = value; }
+
+        public Usuarios(Persona p)
         {
             InitializeComponent();
+            Persona = p;
+            #region Validaciones
+            bool e = Validaciones.Permisos(Persona);
+            tsbNuevo.Enabled = e;
+            tsbEditar.Enabled = e;
+            tsbEliminar.Enabled = e;
+            btnActualizar.Enabled = e;
+            dgvUsuarios.Columns[3].Visible = e;
+            dgvUsuarios.Columns[4].Visible = e;
+            dgvUsuarios.Columns[5].Visible = e;
+            #endregion
             this.dgvUsuarios.AutoGenerateColumns = false;
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

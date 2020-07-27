@@ -14,9 +14,23 @@ namespace UI.Desktop
 {
     public partial class Materias : Form
     {
-        public Materias()
+        private Persona _persona;
+        private Usuario _usuario;
+
+        public Persona Persona { get => _persona; set => _persona = value; }
+        public Usuario Usuario { get => _usuario; set => _usuario = value; }
+
+        public Materias(Persona p)
         {
             InitializeComponent();
+            Persona = p;
+            #region Validaciones
+            bool e = Validaciones.Permisos(Persona);
+            tsbNuevo.Enabled = e;
+            tsbEditar.Enabled = e;
+            tsbEliminar.Enabled = e;
+            btnActualizar.Enabled = e;
+            #endregion
             this.dgvMaterias.AutoGenerateColumns = false;
             this.dgvMaterias.MultiSelect = false;
             this.dgvMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -54,7 +68,7 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if(this.dgvMaterias.SelectedRows.Count > 0) 
+            if (this.dgvMaterias.SelectedRows.Count > 0) 
             {
                 int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
                 MateriaDesktop md = new MateriaDesktop(ID, ApplicationForm.ModoForm.Modificacion);

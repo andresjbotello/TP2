@@ -30,7 +30,7 @@ namespace Business.Entities
 
         public enum TipoPersonas
         {
-            Alumno, Profesor, NoDocente
+            Alumno, Profesor, Admin
         }
 
         public void SetTipoPersonaById(int id)
@@ -43,8 +43,8 @@ namespace Business.Entities
                 case (int) TipoPersonas.Profesor:
                     this.TipoPersona = TipoPersonas.Profesor;
                     break;
-                case (int) TipoPersonas.NoDocente:
-                    this.TipoPersona = TipoPersonas.NoDocente;
+                case (int) TipoPersonas.Admin:
+                    this.TipoPersona = TipoPersonas.Admin;
                     break;
                 default:
                     throw new Exception("No existe el tipo persona especificado: " + id.ToString());
@@ -59,7 +59,7 @@ namespace Business.Entities
                     return 0;
                 case TipoPersonas.Profesor:
                     return 1;
-                case TipoPersonas.NoDocente:
+                case TipoPersonas.Admin:
                     return 2;
                 default:
                     throw new Exception("No existe el tipo persona especificado: " + this.TipoPersona.ToString());

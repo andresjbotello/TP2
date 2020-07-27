@@ -14,9 +14,17 @@ namespace UI.Desktop
 {
     public partial class Especialiades : Form
     {
-        public Especialiades()
+        private Persona _persona;
+        public Persona Persona { get => _persona; set => _persona = value; }
+
+        public Especialiades(Persona p)
         {
             InitializeComponent();
+            Persona = p;
+            bool e = Validaciones.Permisos(Persona);
+            tsbNuevo.Enabled = e;
+            tsbEditar.Enabled = e;
+            tsbEliminar.Enabled = e;
             this.dgvEspecialidades.AutoGenerateColumns = false;
             this.dgvEspecialidades.MultiSelect = false;
             this.dgvEspecialidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

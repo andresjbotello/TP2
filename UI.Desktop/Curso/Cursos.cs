@@ -14,9 +14,17 @@ namespace UI.Desktop
 {
     public partial class Cursos : Form
     {
-        public Cursos()
+        private Persona _persona;
+        public Persona Persona { get => _persona; set => _persona = value; }
+
+        public Cursos(Persona p)
         {
             InitializeComponent();
+            Persona = p;
+            bool e = Validaciones.Permisos(Persona);
+            tsbNuevo.Enabled = e;
+            tsbEditar.Enabled = e;
+            tsbEliminar.Enabled = e;
             this.dgvCursos.AutoGenerateColumns = false;
             this.dgvCursos.MultiSelect = false;
             this.dgvCursos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
