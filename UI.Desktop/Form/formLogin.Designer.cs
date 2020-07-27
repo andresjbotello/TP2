@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
-            this.txtUsuaurio = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lnkOlvidaPass = new System.Windows.Forms.LinkLabel();
@@ -45,19 +45,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtUsuaurio
+            // txtUsuario
             // 
-            this.txtUsuaurio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtUsuaurio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuaurio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuaurio.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuaurio.Location = new System.Drawing.Point(323, 97);
-            this.txtUsuaurio.Name = "txtUsuaurio";
-            this.txtUsuaurio.Size = new System.Drawing.Size(390, 27);
-            this.txtUsuaurio.TabIndex = 1;
-            this.txtUsuaurio.Text = "Usuario";
-            this.txtUsuaurio.Enter += new System.EventHandler(this.txtUsuaurio_Enter);
-            this.txtUsuaurio.Leave += new System.EventHandler(this.txtUsuaurio_Leave);
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
+            this.txtUsuario.Location = new System.Drawing.Point(323, 97);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(390, 27);
+            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.Enter += new System.EventHandler(this.txtUsuaurio_Enter);
+            this.txtUsuario.Leave += new System.EventHandler(this.txtUsuaurio_Leave);
             // 
             // txtPass
             // 
@@ -182,12 +182,11 @@
             this.Controls.Add(this.lnkOlvidaPass);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtUsuaurio);
+            this.Controls.Add(this.txtUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formLogin";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
@@ -200,7 +199,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtUsuaurio;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.LinkLabel lnkOlvidaPass;

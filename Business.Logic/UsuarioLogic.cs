@@ -39,5 +39,10 @@ namespace Business.Logic
             UsuarioData.Delete(id);
         }
 
+        public Usuario Login(string usuario, string pass)
+        {
+            return UsuarioData.GetOne(usuario, pass);
+        }
+
     }
 }

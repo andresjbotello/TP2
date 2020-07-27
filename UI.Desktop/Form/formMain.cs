@@ -7,76 +7,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     public partial class formMain : Form
     {
-        public formMain()
+        private Usuario _usuario;
+        public Usuario Usuario { get => _usuario; set => _usuario = value; }
+
+        public formMain(Usuario usr)
         {
             InitializeComponent();
+            Usuario = usr;
         }
 
-        private void mnuSalir_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void formMain_Shown(object sender, EventArgs e)
-        {
-            formLogin appLogin = new formLogin();
-            if(appLogin.ShowDialog() != DialogResult.OK)
-            {
-                this.Dispose();
-            }
-        }
-
+        
         private void btn_abrirDGV(object sender, EventArgs e)
         {
             UI.Desktop.Usuarios usr = new UI.Desktop.Usuarios();
             usr.ShowDialog();
         }
 
-        private void btn_listaDeMaterias_Click(object sender, EventArgs e)
+        private void mnuUsuarios_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Usuarios usr = new UI.Desktop.Usuarios();
+            usr.ShowDialog();
+        }
+
+        private void mnuMaterias_Click(object sender, EventArgs e)
         {
             UI.Desktop.Materias mtr = new UI.Desktop.Materias();
             mtr.ShowDialog();
         }
 
-        private void btn_listaDePlanes_Click(object sender, EventArgs e)
+        private void mnuPlanes_Click(object sender, EventArgs e)
         {
             UI.Desktop.Planes pln = new Planes();
             pln.ShowDialog();
         }
 
-        private void btn_listaDeEspecialidades_Click(object sender, EventArgs e)
+        private void mnuEspecialidades_Click(object sender, EventArgs e)
         {
             UI.Desktop.Especialiades esp = new Especialiades();
             esp.ShowDialog();
         }
 
-        private void btnListaDeCursos_Click(object sender, EventArgs e)
+        private void mnuCursos_Click(object sender, EventArgs e)
         {
             UI.Desktop.Cursos crs = new Cursos();
             crs.ShowDialog();
         }
 
-        private void btnListaDePersonas_Click(object sender, EventArgs e)
+        private void mnuPersonas_Click(object sender, EventArgs e)
         {
             UI.Desktop.Personas personas = new Personas();
             personas.ShowDialog();
         }
 
-        private void btnListaDeModulos_Click(object sender, EventArgs e)
+        private void mnuModulos_Click(object sender, EventArgs e)
         {
             UI.Desktop.Modulos mdl = new Modulos();
             mdl.ShowDialog();
         }
 
-        private void btnDocentesCursos_Click(object sender, EventArgs e)
+        private void mnuDocentesConCursos_Click(object sender, EventArgs e)
         {
             UI.Desktop.DocentesCursos docCursos = new DocentesCursos();
             docCursos.ShowDialog();
+        }
+
+        private void mnuSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
