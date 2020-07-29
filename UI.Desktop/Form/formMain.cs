@@ -100,17 +100,6 @@ namespace UI.Desktop
             mnuDocentesConCursos.Visible = mostrar;
         }
 
-        private void ocultarMostrarTodo1(bool mostrar)
-        {
-            mnuUsuarios.Enabled = mostrar;
-            mnuMaterias.Enabled = mostrar;
-            mnuPlanes.Enabled = mostrar;
-            mnuEspecialidades.Enabled = mostrar;
-            mnuCursos.Enabled = mostrar;
-            mnuPersonas.Enabled = mostrar;
-            mnuModulos.Enabled = mostrar;
-            mnuDocentesConCursos.Enabled = mostrar;
-        }
 
         private void formMain_Shown(object sender, EventArgs e)
         {
@@ -129,7 +118,7 @@ namespace UI.Desktop
                 if (Persona.TipoPersona == Persona.TipoPersonas.Profesor)
                 {
                     this.ocultarMostrarTodo(false);
-                    mnuEspecialidades.Visible = false;
+                    mnuMaterias.Visible = true;
                 }
                 if (Persona.TipoPersona == Persona.TipoPersonas.Admin)
                 {
