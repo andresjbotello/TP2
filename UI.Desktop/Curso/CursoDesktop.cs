@@ -22,6 +22,7 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
+            FillComboBoxs();
         }
 
         public CursoDesktop(ModoForm modo) : this()
@@ -41,9 +42,9 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtCupo.Text = Convert.ToString(this.CursoActual.Cupo);
-            this.txtidMateria.Text = Convert.ToString(this.CursoActual.IDMateria);
+            this.cmbBoxMaterias.SelectedIndex = SeleccionarMateria();
+            //this.cmbBoxComisiones.SelectedIndex = SeleccionarComision();
             this.txtCal.Text = Convert.ToString(this.CursoActual.AnioCalendario);
-            this.txtidCom.Text = Convert.ToString(this.CursoActual.IDComision);
 
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
@@ -69,10 +70,10 @@ namespace UI.Desktop
             {
                 Curso c = new Business.Entities.Curso();
                 CursoActual = c;
-                CursoActual.State = BusinessEntity.States.New; 
+                CursoActual.State = BusinessEntity.States.New;
 
-                CursoActual.IDMateria = Convert.ToInt32(this.txtidMateria.Text);
-                CursoActual.IDComision = Convert.ToInt32(this.txtidCom.Text);
+                CursoActual.IDMateria = Convert.ToInt32((this.cmbBoxMaterias.SelectedItem as dynamic).Value);
+                //CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
                 CursoActual.AnioCalendario = Convert.ToInt32(this.txtCal.Text);
                 CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
 
@@ -80,8 +81,8 @@ namespace UI.Desktop
             else if (mf == "Modificacion")
             {
                 this.txtID.Text = CursoActual.ID.ToString();
-                CursoActual.IDMateria = Convert.ToInt32(this.txtidMateria.Text);
-                CursoActual.IDComision = Convert.ToInt32(this.txtidCom.Text);
+                CursoActual.IDMateria = Convert.ToInt32((this.cmbBoxMaterias.SelectedItem as dynamic).Value);
+                //CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
                 CursoActual.AnioCalendario = Convert.ToInt32(this.txtCal.Text);
                 CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
 
@@ -111,6 +112,81 @@ namespace UI.Desktop
         {
             GuardarCambios();
             this.Close();
+        }
+
+
+        private void FillComboBoxs()
+        {
+            this.FillComboBoxMaterias();
+            this.FillComboBoxComisiones();
+        }
+
+        private void FillComboBoxMaterias()
+        {
+            MateriaLogic mt = new MateriaLogic();
+
+            List<Materia> materias = mt.GetAll();
+
+            cmbBoxMaterias.DisplayMember = "Text";
+            cmbBoxMaterias.ValueMember = "Value";
+
+            foreach (Materia m in materias)
+            {
+                cmbBoxMaterias.Items.Add(new
+                {
+                    Text = m.Descripcion,
+                    Value = m.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private void FillComboBoxComisiones()
+        {
+            /*
+                ComisionLogic com = new ComisionLogic();
+
+                List<Comision> comisiones = com.GetAll();
+
+                cmbBoxComisiones.DisplayMember = "Text";
+                cmbBoxComisiones.ValueMember = "Value";
+
+                foreach (Comision c in comisiones)
+                {
+                    cmbBoxComisiones.Items.Add(new
+                    {
+                        Text = c.Descripcion,
+                        Value = c.ID.ToString()
+                    }
+                    );
+                }
+            */
+        }
+
+        private int SeleccionarMateria()
+        {
+            for (int i = 0; i < this.cmbBoxMaterias.Items.Count; i++)
+            {
+                if ((this.cmbBoxMaterias.Items[i] as dynamic).Value == this.CursoActual.IDMateria.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
+        }
+
+        private int SeleccionarComision()
+        {
+            for (int i = 0; i < this.cmbBoxComisiones.Items.Count; i++)
+            {
+                if ((this.cmbBoxComisiones.Items[i] as dynamic).Value == this.CursoActual.IDComision.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
+            FillComboBoxEspecialidad();
         }
 
         public PlanDesktop(ModoForm modo) : this()
@@ -41,7 +42,8 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.PlanActual.ID.ToString();
             this.txtDescripcion.Text = this.PlanActual.Descripcion;
-            this.txtIdEspecialidad.Text = Convert.ToString(this.PlanActual.IDEspecialidad);
+
+            this.cmbBoxEspecialidades.SelectedIndex = SeleccionarEspecialidad();
 
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
@@ -70,7 +72,7 @@ namespace UI.Desktop
                 PlanActual.State = BusinessEntity.States.New; 
 
                 PlanActual.Descripcion = this.txtDescripcion.Text;
-                PlanActual.IDEspecialidad = Convert.ToInt32(this.txtIdEspecialidad.Text);
+                PlanActual.IDEspecialidad = Convert.ToInt32((this.cmbBoxEspecialidades.SelectedItem as dynamic).Value);
 
 
             }
@@ -78,7 +80,7 @@ namespace UI.Desktop
             {
                 this.txtID.Text = PlanActual.ID.ToString();
                 PlanActual.Descripcion = this.txtDescripcion.Text;
-                PlanActual.IDEspecialidad = Convert.ToInt32(this.txtIdEspecialidad.Text);
+                PlanActual.IDEspecialidad = Convert.ToInt32((this.cmbBoxEspecialidades.SelectedItem as dynamic).Value);
 
                 PlanActual.State = BusinessEntity.States.Modified;
             }
@@ -106,6 +108,39 @@ namespace UI.Desktop
         {
                 GuardarCambios();
             this.Close();
+        }
+
+        private void FillComboBoxEspecialidad()
+        {
+            EspecialidadLogic el = new EspecialidadLogic();
+
+            List<Especialidad> especialidades = el.GetAll();
+
+            cmbBoxEspecialidades.DisplayMember = "Text";
+            cmbBoxEspecialidades.ValueMember = "Value";
+
+            foreach (Especialidad e in especialidades)
+            {
+                cmbBoxEspecialidades.Items.Add(new
+                {
+                    Text = e.Descripcion,
+                    Value = e.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private int SeleccionarEspecialidad()
+        {
+            for (int i = 0; i < this.cmbBoxEspecialidades.Items.Count; i++)
+            {
+                if ((this.cmbBoxEspecialidades.Items[i] as dynamic).Value == this.PlanActual.IDEspecialidad.ToString())
+                {
+                    return i;
+                } 
+            };
+
+            return -1;
         }
     }
 }

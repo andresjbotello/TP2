@@ -21,6 +21,7 @@ namespace UI.Desktop
         public PersonaDesktop()
         {
             InitializeComponent();
+            FillComboBoxs();
         }
 
         public PersonaDesktop(ModoForm modo) : this()
@@ -46,8 +47,8 @@ namespace UI.Desktop
             this.txtTelefono.Text = this.PersonaActual.Telefono;
             this.dtFechaNacimiento.Value = this.PersonaActual.FechaNacimiento;
             this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
-            this.txtTipoPersona.Text = this.PersonaActual.GetIDTipoPersona().ToString();
-            this.txtIDPlan.Text = this.PersonaActual.IDPlan.ToString();
+            this.cmbBoxTiposPersona.SelectedIndex = SeleccionarTipoPersona();
+            this.cmbBoxPlanes.SelectedIndex = SeleccionarPlan();
 
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
@@ -84,8 +85,8 @@ namespace UI.Desktop
                 PersonaActual.Telefono = this.txtTelefono.Text;
                 PersonaActual.FechaNacimiento = this.dtFechaNacimiento.Value;
                 PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                PersonaActual.SetTipoPersonaById(int.Parse(this.txtTipoPersona.Text));
-                PersonaActual.IDPlan = int.Parse(this.txtIDPlan.Text);
+                PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
+                PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
 
             }
             else if (mf == "Modificacion")
@@ -100,8 +101,8 @@ namespace UI.Desktop
                 PersonaActual.Telefono = this.txtTelefono.Text;
                 PersonaActual.FechaNacimiento = this.dtFechaNacimiento.Value;
                 PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                PersonaActual.SetTipoPersonaById(int.Parse(this.txtTipoPersona.Text));
-                PersonaActual.IDPlan = int.Parse(this.txtIDPlan.Text);
+                PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
+                PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
                 PersonaActual.State = BusinessEntity.States.Modified;
             }
 
@@ -128,6 +129,90 @@ namespace UI.Desktop
         {
             GuardarCambios();
             this.Close();
+        }
+
+        private void FillComboBoxs()
+        {
+            this.FillComboBoxPlan();
+            this.FillComboBoxTipoPersona();
+        }
+
+        private void FillComboBoxPlan()
+        {
+            PlanLogic pl = new PlanLogic();
+
+            List<Plan> planes = pl.GetAll();
+
+            cmbBoxPlanes.DisplayMember = "Text";
+            cmbBoxPlanes.ValueMember = "Value";
+
+            foreach (Plan e in planes)
+            {
+                cmbBoxPlanes.Items.Add(new
+                {
+                    Text = e.Descripcion,
+                    Value = e.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private void FillComboBoxTipoPersona()
+        {
+            cmbBoxTiposPersona.DisplayMember = "Text";
+            cmbBoxTiposPersona.ValueMember = "Value";
+
+            for (int tipoCargo = (int)Persona.TipoPersonas.Alumno; tipoCargo <= (int)Persona.TipoPersonas.Admin; tipoCargo++)
+            {
+                String texto = "";
+
+                switch (tipoCargo)
+                {
+                    case (int)Persona.TipoPersonas.Alumno:
+                        texto = "Alumno";
+                        break;
+                    case (int)Persona.TipoPersonas.Profesor:
+                        texto = "Profesor";
+                        break;
+                    case (int)Persona.TipoPersonas.Admin:
+                        texto = "Admin";
+                        break;
+                }
+
+                cmbBoxTiposPersona.Items.Add(new
+                {
+                    Text = texto,
+                    Value = tipoCargo.ToString()
+                }
+);
+            }
+
+        }
+
+        private int SeleccionarPlan()
+        {
+            for (int i = 0; i < this.cmbBoxPlanes.Items.Count; i++)
+            {
+                if ((this.cmbBoxPlanes.Items[i] as dynamic).Value == this.PersonaActual.IDPlan.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
+        }
+
+        private int SeleccionarTipoPersona()
+        {
+            for (int i = 0; i < this.cmbBoxTiposPersona.Items.Count; i++)
+            {
+                if ((this.cmbBoxTiposPersona.Items[i] as dynamic).Value == this.PersonaActual.GetIDTipoPersona().ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
         }
 
     }

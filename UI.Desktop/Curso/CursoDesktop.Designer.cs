@@ -38,9 +38,9 @@
             this.lblidComision = new System.Windows.Forms.Label();
             this.lblidMateria = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtidMateria = new System.Windows.Forms.TextBox();
-            this.txtidCom = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbBoxMaterias = new System.Windows.Forms.ComboBox();
+            this.cmbBoxComisiones = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(70, 3);
+            this.txtID.Location = new System.Drawing.Point(58, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(175, 20);
@@ -111,18 +111,18 @@
             this.lblidComision.AutoSize = true;
             this.lblidComision.Location = new System.Drawing.Point(3, 112);
             this.lblidComision.Name = "lblidComision";
-            this.lblidComision.Size = new System.Drawing.Size(61, 13);
+            this.lblidComision.Size = new System.Drawing.Size(49, 13);
             this.lblidComision.TabIndex = 2;
-            this.lblidComision.Text = "Id Comision";
+            this.lblidComision.Text = "Comisión";
             // 
             // lblidMateria
             // 
             this.lblidMateria.AutoSize = true;
             this.lblidMateria.Location = new System.Drawing.Point(3, 56);
             this.lblidMateria.Name = "lblidMateria";
-            this.lblidMateria.Size = new System.Drawing.Size(57, 13);
+            this.lblidMateria.Size = new System.Drawing.Size(42, 13);
             this.lblidMateria.TabIndex = 1;
-            this.lblidMateria.Text = "Id  Materia";
+            this.lblidMateria.Text = "Materia";
             // 
             // lblID
             // 
@@ -133,20 +133,6 @@
             this.lblID.TabIndex = 0;
             this.lblID.Text = "ID";
             // 
-            // txtidMateria
-            // 
-            this.txtidMateria.Location = new System.Drawing.Point(70, 59);
-            this.txtidMateria.Name = "txtidMateria";
-            this.txtidMateria.Size = new System.Drawing.Size(175, 20);
-            this.txtidMateria.TabIndex = 11;
-            // 
-            // txtidCom
-            // 
-            this.txtidCom.Location = new System.Drawing.Point(70, 115);
-            this.txtidCom.Name = "txtidCom";
-            this.txtidCom.Size = new System.Drawing.Size(175, 20);
-            this.txtidCom.TabIndex = 13;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
@@ -154,8 +140,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.txtidCom, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtidMateria, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblidMateria, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblidComision, 0, 2);
@@ -166,6 +150,8 @@
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtCupo, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtCal, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxMaterias, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxComisiones, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -176,6 +162,22 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 280);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // cmbBoxMaterias
+            // 
+            this.cmbBoxMaterias.FormattingEnabled = true;
+            this.cmbBoxMaterias.Location = new System.Drawing.Point(58, 59);
+            this.cmbBoxMaterias.Name = "cmbBoxMaterias";
+            this.cmbBoxMaterias.Size = new System.Drawing.Size(196, 21);
+            this.cmbBoxMaterias.TabIndex = 19;
+            // 
+            // cmbBoxComisiones
+            // 
+            this.cmbBoxComisiones.FormattingEnabled = true;
+            this.cmbBoxComisiones.Location = new System.Drawing.Point(58, 115);
+            this.cmbBoxComisiones.Name = "cmbBoxComisiones";
+            this.cmbBoxComisiones.Size = new System.Drawing.Size(196, 21);
+            this.cmbBoxComisiones.TabIndex = 20;
             // 
             // CursoDesktop
             // 
@@ -202,8 +204,8 @@
         private System.Windows.Forms.Label lblidComision;
         private System.Windows.Forms.Label lblidMateria;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtidMateria;
-        private System.Windows.Forms.TextBox txtidCom;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ComboBox cmbBoxMaterias;
+        private System.Windows.Forms.ComboBox cmbBoxComisiones;
     }
 }

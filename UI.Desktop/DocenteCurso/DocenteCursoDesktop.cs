@@ -21,6 +21,7 @@ namespace UI.Desktop
         public DocenteCursoDesktop()
         {
             InitializeComponent();
+            FillComboBoxs();
         }
 
         public DocenteCursoDesktop(ModoForm modo) : this()
@@ -39,9 +40,9 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.DocenteCursoActual.ID.ToString();
-            this.txtIDCurso.Text = this.DocenteCursoActual.IDCurso.ToString();
-            this.txtIDDocente.Text = this.DocenteCursoActual.IDDocente.ToString();
-            this.txtCargo.Text = this.DocenteCursoActual.GetIDTipoCargo().ToString();
+            this.cmbBoxCursos.SelectedIndex = SeleccionarCurso();
+            this.cmbBoxDocentes.SelectedIndex = SeleccionarDocente();
+            this.cmbBoxTiposCargo.SelectedIndex = SeleccionarTipoCargo();
 
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
@@ -67,19 +68,19 @@ namespace UI.Desktop
             {
                 DocenteCurso dc = new DocenteCurso();
                 DocenteCursoActual = dc;
-                DocenteCursoActual.State = BusinessEntity.States.New; 
+                DocenteCursoActual.State = BusinessEntity.States.New;
 
-                DocenteCursoActual.IDCurso = int.Parse(this.txtIDCurso.Text);
-                DocenteCursoActual.IDDocente = int.Parse(this.txtIDDocente.Text);
-                DocenteCursoActual.SetTipoCargoById(int.Parse(this.txtCargo.Text));
+                DocenteCursoActual.IDCurso = Convert.ToInt32((this.cmbBoxCursos.SelectedItem as dynamic).Value);
+                DocenteCursoActual.IDDocente = Convert.ToInt32((this.cmbBoxDocentes.SelectedItem as dynamic).Value);
+                DocenteCursoActual.SetTipoCargoById(Convert.ToInt32((this.cmbBoxTiposCargo.SelectedItem as dynamic).Value));
 
             }
             else if (mf == "Modificacion")
             {
                 this.txtID.Text = DocenteCursoActual.ID.ToString();
-                DocenteCursoActual.IDCurso = int.Parse(this.txtIDCurso.Text);
-                DocenteCursoActual.IDDocente = int.Parse(this.txtIDDocente.Text);
-                DocenteCursoActual.SetTipoCargoById(int.Parse(this.txtCargo.Text));
+                DocenteCursoActual.IDCurso = Convert.ToInt32((this.cmbBoxCursos.SelectedItem as dynamic).Value);
+                DocenteCursoActual.IDDocente = Convert.ToInt32((this.cmbBoxDocentes.SelectedItem as dynamic).Value);
+                DocenteCursoActual.SetTipoCargoById(Convert.ToInt32((this.cmbBoxTiposCargo.SelectedItem as dynamic).Value));
                 DocenteCursoActual.State = BusinessEntity.States.Modified;
             }
 
@@ -106,6 +107,127 @@ namespace UI.Desktop
         {
             GuardarCambios();
             this.Close();
+        }
+
+        private void FillComboBoxs()
+        {
+            this.FillComboBoxCursos();
+            this.FillComboBoxDocentes();
+            this.FillComboBoxTipoCargo();
+        }
+
+        private void FillComboBoxCursos()
+        {
+            CursoLogic cur = new CursoLogic();
+
+            List<Curso> cursos = cur.GetAll();
+
+            cmbBoxCursos.DisplayMember = "Text";
+            cmbBoxCursos.ValueMember = "Value";
+
+            foreach (Curso c in cursos)
+            {
+                cmbBoxCursos.Items.Add(new
+                {
+                    Text = c.ID.ToString(),
+                    Value = c.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private void FillComboBoxDocentes()
+        {
+            PersonaLogic per = new PersonaLogic();
+
+            List<Persona> personas = per.GetAll(Persona.TipoPersonas.Profesor);
+
+            cmbBoxDocentes.DisplayMember = "Text";
+            cmbBoxDocentes.ValueMember = "Value";
+
+            foreach (Persona p in personas)
+            {
+                cmbBoxDocentes.Items.Add(new
+                {
+                    Text = p.Nombre + ' ' + p.Apellido,
+                    Value = p.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private void FillComboBoxTipoCargo()
+        {
+            cmbBoxTiposCargo.DisplayMember = "Text";
+            cmbBoxTiposCargo.ValueMember = "Value";
+
+            for (int tipoCargo = (int) DocenteCurso.TiposCargos.Teoria; tipoCargo <= (int)DocenteCurso.TiposCargos.AuxiliarPractica; tipoCargo++)
+            {
+                String texto = "";
+
+                switch (tipoCargo)
+                {
+                    case (int)DocenteCurso.TiposCargos.Teoria:
+                        texto = "Teoría";
+                        break;
+                    case (int)DocenteCurso.TiposCargos.Practica:
+                        texto = "Práctica";
+                        break;
+                    case (int)DocenteCurso.TiposCargos.AuxiliarTeoria:
+                        texto = "Auxiliar de Teoría";
+                        break;
+                    case (int)DocenteCurso.TiposCargos.AuxiliarPractica:
+                        texto = "Auxiliar de Práctica";
+                        break;
+                }
+
+                cmbBoxTiposCargo.Items.Add(new
+                {
+                    Text = texto,
+                    Value = tipoCargo.ToString()
+                }
+);
+            }
+
+        }
+
+        private int SeleccionarCurso()
+        {
+            for (int i = 0; i < this.cmbBoxCursos.Items.Count; i++)
+            {
+                if ((this.cmbBoxCursos.Items[i] as dynamic).Value == this.DocenteCursoActual.IDCurso.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
+        }
+
+        private int SeleccionarDocente()
+        {
+            for (int i = 0; i < this.cmbBoxDocentes.Items.Count; i++)
+            {
+                if ((this.cmbBoxDocentes.Items[i] as dynamic).Value == this.DocenteCursoActual.IDDocente.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
+        }
+
+        private int SeleccionarTipoCargo()
+        {
+            for (int i = 0; i < this.cmbBoxTiposCargo.Items.Count; i++)
+            {
+                if ((this.cmbBoxTiposCargo.Items[i] as dynamic).Value == this.DocenteCursoActual.GetIDTipoCargo().ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
         }
 
     }

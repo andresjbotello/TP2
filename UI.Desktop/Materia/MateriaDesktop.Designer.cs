@@ -40,9 +40,9 @@
             this.lblHSTotales = new System.Windows.Forms.Label();
             this.txtHSSemanales = new System.Windows.Forms.TextBox();
             this.txtHSTotales = new System.Windows.Forms.TextBox();
-            this.txtIdPlan = new System.Windows.Forms.TextBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbBoxPlanes = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -63,8 +63,8 @@
             this.tableLayoutPanel1.Controls.Add(this.lblHSTotales, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtHSSemanales, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtHSTotales, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtIdPlan, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtMateria, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxPlanes, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -120,9 +120,9 @@
             this.lblIdPlan.AutoSize = true;
             this.lblIdPlan.Location = new System.Drawing.Point(3, 50);
             this.lblIdPlan.Name = "lblIdPlan";
-            this.lblIdPlan.Size = new System.Drawing.Size(40, 13);
+            this.lblIdPlan.Size = new System.Drawing.Size(28, 13);
             this.lblIdPlan.TabIndex = 19;
-            this.lblIdPlan.Text = "Id Plan";
+            this.lblIdPlan.Text = "Plan";
             // 
             // lblHSSemanales
             // 
@@ -165,19 +165,20 @@
             this.txtHSTotales.Size = new System.Drawing.Size(175, 20);
             this.txtHSTotales.TabIndex = 15;
             // 
-            // txtIdPlan
-            // 
-            this.txtIdPlan.Location = new System.Drawing.Point(99, 53);
-            this.txtIdPlan.Name = "txtIdPlan";
-            this.txtIdPlan.Size = new System.Drawing.Size(175, 20);
-            this.txtIdPlan.TabIndex = 20;
-            // 
             // txtMateria
             // 
             this.txtMateria.Location = new System.Drawing.Point(99, 103);
             this.txtMateria.Name = "txtMateria";
             this.txtMateria.Size = new System.Drawing.Size(175, 20);
             this.txtMateria.TabIndex = 11;
+            // 
+            // cmbBoxPlanes
+            // 
+            this.cmbBoxPlanes.FormattingEnabled = true;
+            this.cmbBoxPlanes.Location = new System.Drawing.Point(99, 53);
+            this.cmbBoxPlanes.Name = "cmbBoxPlanes";
+            this.cmbBoxPlanes.Size = new System.Drawing.Size(175, 21);
+            this.cmbBoxPlanes.TabIndex = 20;
             // 
             // MateriaDesktop
             // 
@@ -209,6 +210,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblIdPlan;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.TextBox txtIdPlan;
+        private System.Windows.Forms.ComboBox cmbBoxPlanes;
     }
 }

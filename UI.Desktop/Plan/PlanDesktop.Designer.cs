@@ -34,15 +34,15 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtIdEspecialidad = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cmbBoxEspecialidades = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(103, 213);
+            this.btnAceptar.Location = new System.Drawing.Point(76, 213);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 17;
@@ -52,7 +52,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(103, 3);
+            this.txtID.Location = new System.Drawing.Point(76, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(175, 20);
@@ -63,9 +63,9 @@
             this.lblIdEspecialidad.AutoSize = true;
             this.lblIdEspecialidad.Location = new System.Drawing.Point(3, 140);
             this.lblIdEspecialidad.Name = "lblIdEspecialidad";
-            this.lblIdEspecialidad.Size = new System.Drawing.Size(94, 13);
+            this.lblIdEspecialidad.Size = new System.Drawing.Size(67, 13);
             this.lblIdEspecialidad.TabIndex = 2;
-            this.lblIdEspecialidad.Text = "Id de Especialidad";
+            this.lblIdEspecialidad.Text = "Especialidad";
             // 
             // lblDescripcion
             // 
@@ -87,17 +87,10 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(103, 73);
+            this.txtDescripcion.Location = new System.Drawing.Point(76, 73);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(175, 20);
             this.txtDescripcion.TabIndex = 11;
-            // 
-            // txtIdEspecialidad
-            // 
-            this.txtIdEspecialidad.Location = new System.Drawing.Point(103, 143);
-            this.txtIdEspecialidad.Name = "txtIdEspecialidad";
-            this.txtIdEspecialidad.Size = new System.Drawing.Size(175, 20);
-            this.txtIdEspecialidad.TabIndex = 13;
             // 
             // tableLayoutPanel1
             // 
@@ -105,7 +98,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.txtIdEspecialidad, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblDescripcion, 0, 1);
@@ -113,6 +105,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxEspecialidades, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -126,13 +119,22 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(284, 213);
+            this.btnCancelar.Location = new System.Drawing.Point(257, 213);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // cmbBoxEspecialidades
+            // 
+            this.cmbBoxEspecialidades.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbBoxEspecialidades.FormattingEnabled = true;
+            this.cmbBoxEspecialidades.Location = new System.Drawing.Point(76, 143);
+            this.cmbBoxEspecialidades.Name = "cmbBoxEspecialidades";
+            this.cmbBoxEspecialidades.Size = new System.Drawing.Size(175, 21);
+            this.cmbBoxEspecialidades.TabIndex = 19;
             // 
             // PlanDesktop
             // 
@@ -155,8 +157,8 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtIdEspecialidad;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cmbBoxEspecialidades;
     }
 }

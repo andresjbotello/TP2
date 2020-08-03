@@ -36,11 +36,11 @@
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblIDCurso = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtIDCurso = new System.Windows.Forms.TextBox();
-            this.txtCargo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbBoxCursos = new System.Windows.Forms.ComboBox();
+            this.cmbBoxDocentes = new System.Windows.Forms.ComboBox();
             this.planAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtIDDocente = new System.Windows.Forms.TextBox();
+            this.cmbBoxTiposCargo = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +48,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancelar.Location = new System.Drawing.Point(410, 222);
+            this.btnCancelar.Location = new System.Drawing.Point(421, 221);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
@@ -59,7 +59,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(256, 222);
+            this.btnAceptar.Location = new System.Drawing.Point(278, 221);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 17;
@@ -69,7 +69,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(57, 3);
+            this.txtID.Location = new System.Drawing.Point(44, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(159, 20);
@@ -78,16 +78,16 @@
             // lblIDDocente
             // 
             this.lblIDDocente.AutoSize = true;
-            this.lblIDDocente.Location = new System.Drawing.Point(256, 73);
+            this.lblIDDocente.Location = new System.Drawing.Point(278, 73);
             this.lblIDDocente.Name = "lblIDDocente";
-            this.lblIDDocente.Size = new System.Drawing.Size(62, 13);
+            this.lblIDDocente.Size = new System.Drawing.Size(48, 13);
             this.lblIDDocente.TabIndex = 5;
-            this.lblIDDocente.Text = "ID Docente";
+            this.lblIDDocente.Text = "Docente";
             // 
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(3, 146);
+            this.lblCargo.Location = new System.Drawing.Point(3, 147);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(35, 13);
             this.lblCargo.TabIndex = 2;
@@ -98,9 +98,9 @@
             this.lblIDCurso.AutoSize = true;
             this.lblIDCurso.Location = new System.Drawing.Point(3, 73);
             this.lblIDCurso.Name = "lblIDCurso";
-            this.lblIDCurso.Size = new System.Drawing.Size(48, 13);
+            this.lblIDCurso.Size = new System.Drawing.Size(34, 13);
             this.lblIDCurso.TabIndex = 1;
-            this.lblIDCurso.Text = "ID Curso";
+            this.lblIDCurso.Text = "Curso";
             // 
             // lblID
             // 
@@ -111,20 +111,6 @@
             this.lblID.TabIndex = 0;
             this.lblID.Text = "ID";
             // 
-            // txtIDCurso
-            // 
-            this.txtIDCurso.Location = new System.Drawing.Point(57, 76);
-            this.txtIDCurso.Name = "txtIDCurso";
-            this.txtIDCurso.Size = new System.Drawing.Size(159, 20);
-            this.txtIDCurso.TabIndex = 11;
-            // 
-            // txtCargo
-            // 
-            this.txtCargo.Location = new System.Drawing.Point(57, 149);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(159, 20);
-            this.txtCargo.TabIndex = 13;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
@@ -132,22 +118,22 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.txtCargo, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDCurso, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblIDCurso, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblCargo, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblIDDocente, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDDocente, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxCursos, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxDocentes, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxTiposCargo, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.34247F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.65753F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -155,16 +141,33 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(561, 292);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // cmbBoxCursos
+            // 
+            this.cmbBoxCursos.FormattingEnabled = true;
+            this.cmbBoxCursos.Location = new System.Drawing.Point(44, 76);
+            this.cmbBoxCursos.Name = "cmbBoxCursos";
+            this.cmbBoxCursos.Size = new System.Drawing.Size(159, 21);
+            this.cmbBoxCursos.TabIndex = 19;
+            // 
+            // cmbBoxDocentes
+            // 
+            this.cmbBoxDocentes.FormattingEnabled = true;
+            this.cmbBoxDocentes.Location = new System.Drawing.Point(359, 76);
+            this.cmbBoxDocentes.Name = "cmbBoxDocentes";
+            this.cmbBoxDocentes.Size = new System.Drawing.Size(199, 21);
+            this.cmbBoxDocentes.TabIndex = 20;
+            // 
             // planAdapterBindingSource
             // 
             this.planAdapterBindingSource.DataSource = typeof(Data.Database.PlanAdapter);
             // 
-            // txtIDDocente
+            // cmbBoxTiposCargo
             // 
-            this.txtIDDocente.Location = new System.Drawing.Point(337, 76);
-            this.txtIDDocente.Name = "txtIDDocente";
-            this.txtIDDocente.Size = new System.Drawing.Size(221, 20);
-            this.txtIDDocente.TabIndex = 12;
+            this.cmbBoxTiposCargo.FormattingEnabled = true;
+            this.cmbBoxTiposCargo.Location = new System.Drawing.Point(44, 150);
+            this.cmbBoxTiposCargo.Name = "cmbBoxTiposCargo";
+            this.cmbBoxTiposCargo.Size = new System.Drawing.Size(159, 21);
+            this.cmbBoxTiposCargo.TabIndex = 21;
             // 
             // DocenteCursoDesktop
             // 
@@ -189,10 +192,10 @@
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.Label lblIDCurso;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtIDCurso;
-        private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.BindingSource planAdapterBindingSource;
-        private System.Windows.Forms.TextBox txtIDDocente;
+        private System.Windows.Forms.ComboBox cmbBoxCursos;
+        private System.Windows.Forms.ComboBox cmbBoxDocentes;
+        private System.Windows.Forms.ComboBox cmbBoxTiposCargo;
     }
 }

@@ -29,6 +29,11 @@ namespace Business.Logic
             return PersonaData.GetAll();
         }
 
+        public List<Persona> GetAll(Persona.TipoPersonas tipoPersonas)
+        {
+            return PersonaData.GetAll(tipoPersonas);
+        }
+
         public void Save(Persona obj)
         {
             PersonaData.Save(obj);

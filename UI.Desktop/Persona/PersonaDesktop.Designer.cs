@@ -47,26 +47,26 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.txtLegajo = new System.Windows.Forms.TextBox();
-            this.lblTipoPersona = new System.Windows.Forms.Label();
             this.lblIDPlan = new System.Windows.Forms.Label();
-            this.txtIDPlan = new System.Windows.Forms.TextBox();
             this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.txtTipoPersona = new System.Windows.Forms.TextBox();
+            this.lblTipoPersona = new System.Windows.Forms.Label();
             this.planAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbBoxPlanes = new System.Windows.Forms.ComboBox();
+            this.cmbBoxTiposPersona = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(337, 44);
+            this.txtApellido.Location = new System.Drawing.Point(334, 44);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(221, 20);
             this.txtApellido.TabIndex = 12;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(337, 85);
+            this.txtDireccion.Location = new System.Drawing.Point(334, 85);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(221, 20);
             this.txtDireccion.TabIndex = 14;
@@ -74,7 +74,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancelar.Location = new System.Drawing.Point(410, 249);
+            this.btnCancelar.Location = new System.Drawing.Point(408, 249);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
@@ -85,7 +85,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(256, 249);
+            this.btnAceptar.Location = new System.Drawing.Point(253, 249);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 17;
@@ -98,13 +98,13 @@
             this.txtID.Location = new System.Drawing.Point(58, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(159, 20);
+            this.txtID.Size = new System.Drawing.Size(156, 20);
             this.txtID.TabIndex = 9;
             // 
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(223, 123);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(220, 123);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(108, 13);
             this.lblFechaNacimiento.TabIndex = 7;
@@ -113,7 +113,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(223, 82);
+            this.lblDireccion.Location = new System.Drawing.Point(220, 82);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 6;
@@ -122,7 +122,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(223, 41);
+            this.lblApellido.Location = new System.Drawing.Point(220, 41);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
@@ -168,21 +168,21 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(58, 44);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(159, 20);
+            this.txtNombre.Size = new System.Drawing.Size(156, 20);
             this.txtNombre.TabIndex = 11;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(58, 85);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(159, 20);
+            this.txtEmail.Size = new System.Drawing.Size(156, 20);
             this.txtEmail.TabIndex = 13;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(58, 126);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(159, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(156, 20);
             this.txtTelefono.TabIndex = 15;
             // 
             // tableLayoutPanel1
@@ -208,12 +208,12 @@
             this.tableLayoutPanel1.Controls.Add(this.lblLegajo, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblIDPlan, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDPlan, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.dtFechaNacimiento, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtTipoPersona, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 6);
             this.tableLayoutPanel1.Controls.Add(this.lblTipoPersona, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxPlanes, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxTiposPersona, 3, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -240,53 +240,55 @@
             // 
             this.txtLegajo.Location = new System.Drawing.Point(58, 167);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(159, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(156, 20);
             this.txtLegajo.TabIndex = 18;
-            // 
-            // lblTipoPersona
-            // 
-            this.lblTipoPersona.AutoSize = true;
-            this.lblTipoPersona.Location = new System.Drawing.Point(223, 164);
-            this.lblTipoPersona.Name = "lblTipoPersona";
-            this.lblTipoPersona.Size = new System.Drawing.Size(28, 13);
-            this.lblTipoPersona.TabIndex = 19;
-            this.lblTipoPersona.Text = "Tipo";
             // 
             // lblIDPlan
             // 
             this.lblIDPlan.AutoSize = true;
             this.lblIDPlan.Location = new System.Drawing.Point(3, 205);
             this.lblIDPlan.Name = "lblIDPlan";
-            this.lblIDPlan.Size = new System.Drawing.Size(42, 13);
+            this.lblIDPlan.Size = new System.Drawing.Size(28, 13);
             this.lblIDPlan.TabIndex = 21;
-            this.lblIDPlan.Text = "ID Plan";
-            // 
-            // txtIDPlan
-            // 
-            this.txtIDPlan.Location = new System.Drawing.Point(58, 208);
-            this.txtIDPlan.Name = "txtIDPlan";
-            this.txtIDPlan.Size = new System.Drawing.Size(159, 20);
-            this.txtIDPlan.TabIndex = 22;
+            this.lblIDPlan.Text = "Plan";
             // 
             // dtFechaNacimiento
             // 
-            this.dtFechaNacimiento.Location = new System.Drawing.Point(337, 126);
+            this.dtFechaNacimiento.Location = new System.Drawing.Point(334, 126);
             this.dtFechaNacimiento.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.dtFechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
             this.dtFechaNacimiento.TabIndex = 23;
             // 
-            // txtTipoPersona
+            // lblTipoPersona
             // 
-            this.txtTipoPersona.Location = new System.Drawing.Point(337, 167);
-            this.txtTipoPersona.Name = "txtTipoPersona";
-            this.txtTipoPersona.Size = new System.Drawing.Size(221, 20);
-            this.txtTipoPersona.TabIndex = 24;
+            this.lblTipoPersona.AutoSize = true;
+            this.lblTipoPersona.Location = new System.Drawing.Point(220, 164);
+            this.lblTipoPersona.Name = "lblTipoPersona";
+            this.lblTipoPersona.Size = new System.Drawing.Size(28, 13);
+            this.lblTipoPersona.TabIndex = 19;
+            this.lblTipoPersona.Text = "Tipo";
             // 
             // planAdapterBindingSource
             // 
             this.planAdapterBindingSource.DataSource = typeof(Data.Database.PlanAdapter);
+            // 
+            // cmbBoxPlanes
+            // 
+            this.cmbBoxPlanes.FormattingEnabled = true;
+            this.cmbBoxPlanes.Location = new System.Drawing.Point(58, 208);
+            this.cmbBoxPlanes.Name = "cmbBoxPlanes";
+            this.cmbBoxPlanes.Size = new System.Drawing.Size(156, 21);
+            this.cmbBoxPlanes.TabIndex = 25;
+            // 
+            // cmbBoxTiposPersona
+            // 
+            this.cmbBoxTiposPersona.FormattingEnabled = true;
+            this.cmbBoxTiposPersona.Location = new System.Drawing.Point(334, 167);
+            this.cmbBoxTiposPersona.Name = "cmbBoxTiposPersona";
+            this.cmbBoxTiposPersona.Size = new System.Drawing.Size(224, 21);
+            this.cmbBoxTiposPersona.TabIndex = 26;
             // 
             // PersonaDesktop
             // 
@@ -324,9 +326,10 @@
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label lblTipoPersona;
         private System.Windows.Forms.Label lblIDPlan;
-        private System.Windows.Forms.TextBox txtIDPlan;
         private System.Windows.Forms.DateTimePicker dtFechaNacimiento;
         private System.Windows.Forms.BindingSource planAdapterBindingSource;
         private System.Windows.Forms.TextBox txtTipoPersona;
+        private System.Windows.Forms.ComboBox cmbBoxPlanes;
+        private System.Windows.Forms.ComboBox cmbBoxTiposPersona;
     }
 }

@@ -20,6 +20,7 @@ namespace UI.Desktop
         public MateriaDesktop()
         {
             InitializeComponent();
+            FillComboBoxPlan();
         }
 
         public MateriaDesktop(ModoForm modo) : this()
@@ -38,7 +39,7 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.MateriaActual.ID.ToString();
-            this.txtIdPlan.Text = this.MateriaActual.IDPlan.ToString();
+            this.cmbBoxPlanes.SelectedIndex = SeleccionarPlan();
             this.txtMateria.Text = this.MateriaActual.Descripcion;
             this.txtHSSemanales.Text = this.MateriaActual.HSSemanales.ToString();
             this.txtHSTotales.Text = this.MateriaActual.HSTotales.ToString();
@@ -69,7 +70,7 @@ namespace UI.Desktop
                 Materia m = new Business.Entities.Materia();
                 MateriaActual = m;
 
-                MateriaActual.IDPlan = Convert.ToInt32(this.txtIdPlan.Text);
+                MateriaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
                 MateriaActual.Descripcion = this.txtMateria.Text;
                 MateriaActual.HSSemanales = Convert.ToInt32(this.txtHSSemanales.Text);
                 MateriaActual.HSTotales = Convert.ToInt32(this.txtHSTotales.Text);
@@ -79,7 +80,7 @@ namespace UI.Desktop
             else if (mf == "Modificacion")
             {
                 this.txtID.Text = MateriaActual.ID.ToString();
-                MateriaActual.IDPlan = Convert.ToInt32(this.txtIdPlan.Text);
+                MateriaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
                 MateriaActual.Descripcion = this.txtMateria.Text;
                 MateriaActual.HSSemanales = Convert.ToInt32(this.txtHSSemanales.Text);
                 MateriaActual.HSTotales = Convert.ToInt32(this.txtHSTotales.Text);
@@ -109,6 +110,39 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FillComboBoxPlan()
+        {
+            PlanLogic pl = new PlanLogic();
+
+            List<Plan> planes = pl.GetAll();
+
+            cmbBoxPlanes.DisplayMember = "Text";
+            cmbBoxPlanes.ValueMember = "Value";
+
+            foreach (Plan p in planes)
+            {
+                cmbBoxPlanes.Items.Add(new
+                {
+                    Text = p.Descripcion,
+                    Value = p.ID.ToString()
+                }
+                );
+            }
+        }
+
+        private int SeleccionarPlan()
+        {
+            for (int i = 0; i < this.cmbBoxPlanes.Items.Count; i++)
+            {
+                if ((this.cmbBoxPlanes.Items[i] as dynamic).Value == this.MateriaActual.IDPlan.ToString())
+                {
+                    return i;
+                }
+            };
+
+            return -1;
         }
     }
 }
