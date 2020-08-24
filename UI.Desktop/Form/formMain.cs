@@ -45,6 +45,12 @@ namespace UI.Desktop
             mtr.ShowDialog();
         }
 
+        private void mnuComisiones_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.Comisiones com = new UI.Desktop.Comisiones(Persona);
+            com.ShowDialog();
+        }
+
         private void mnuPlanes_Click(object sender, EventArgs e)
         {
             UI.Desktop.Planes pln = new Planes(Persona);
@@ -79,6 +85,12 @@ namespace UI.Desktop
         {
             UI.Desktop.DocentesCursos docCursos = new DocentesCursos(Persona);
             docCursos.ShowDialog();
+        }
+
+        private void modulosUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UI.Desktop.ModulosUsuarios modUsuarios = new ModulosUsuarios(Persona);
+            modUsuarios.ShowDialog();
         }
 
         private void mnuSalir_Click(object sender, EventArgs e)
@@ -131,5 +143,7 @@ namespace UI.Desktop
         {
             Application.Exit();
         }
+
+        
     }
 }
