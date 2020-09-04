@@ -34,9 +34,9 @@ namespace Business.Logic
             return PersonaData.GetAll(tipoPersonas);
         }
 
-        public void Save(Persona obj)
+        public Persona Save(Persona obj)
         {
-            PersonaData.Save(obj);
+            return PersonaData.Save(obj);
         }
 
         public void Delete(int id)

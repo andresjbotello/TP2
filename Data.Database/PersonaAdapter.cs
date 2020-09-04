@@ -167,7 +167,7 @@ namespace Data.Database
         }
 
 
-        protected void Update(Persona persona)
+        protected Persona Update(Persona persona)
         {
             try
             {
@@ -206,9 +206,10 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
+            return persona;
         }
 
-        protected void Insert(Persona persona)
+        protected Persona Insert(Persona persona)
         {
             try
             {
@@ -240,14 +241,14 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-
+            return persona;
         }
 
-        public void Save(Persona persona)
+        public Persona Save(Persona persona)
         {
             if (persona.State == BusinessEntity.States.New)
             {
-                this.Insert(persona);
+                return this.Insert(persona);
             }
             else if (persona.State == BusinessEntity.States.Deleted)
             {
@@ -255,9 +256,9 @@ namespace Data.Database
             }
             else if (persona.State == BusinessEntity.States.Modified)
             {
-                this.Update(persona);
+                return this.Update(persona);
             }
-            persona.State = BusinessEntity.States.Unmodified;
+            return null;
         }
 
     }

@@ -18,6 +18,11 @@ namespace UI.Desktop
         private Persona _personaActual;
         public Persona PersonaActual { get => _personaActual; set => _personaActual = value; }
 
+        private Usuario _usuarioActual;
+        public Usuario UsuarioActual { get => _usuarioActual; set => _usuarioActual = value; }
+
+
+
         public PersonaDesktop()
         {
             InitializeComponent();
@@ -34,6 +39,9 @@ namespace UI.Desktop
             Modo = modo;
             PersonaLogic pl = new PersonaLogic();
             PersonaActual = pl.GetOne(ID);
+            UsuarioLogic ul = new UsuarioLogic();
+            UsuarioActual = ul.GetOneByPersona(PersonaActual);
+
             MapearDeDatos();
         }
 
@@ -50,6 +58,11 @@ namespace UI.Desktop
             this.cmbBoxTiposPersona.SelectedIndex = SeleccionarTipoPersona();
             this.cmbBoxPlanes.SelectedIndex = SeleccionarPlan();
 
+            this.txtNombreUsuario.Text = this.UsuarioActual.NombreUsuario;
+            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
+            this.txtClave.Text = this.UsuarioActual.Clave;
+            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
             {
@@ -58,6 +71,24 @@ namespace UI.Desktop
             else if(mf == "Baja")
             {
                 this.btnAceptar.Text = "Eliminar";
+                #region Oculto
+                this.txtID.Enabled = false;
+                this.txtNombre.Enabled = false;
+                this.txtApellido.Enabled = false;
+                this.txtEmail.Enabled = false;
+                this.txtDireccion.Enabled = false;
+                this.txtTelefono.Enabled = false;
+                this.dtFechaNacimiento.Enabled = false;
+                this.txtLegajo.Enabled = false;
+                this.cmbBoxTiposPersona.Enabled = false;
+                this.cmbBoxPlanes.Enabled = false;
+
+                this.txtNombreUsuario.Enabled = false;
+                this.chkHabilitado.Enabled = false;
+                this.txtClave.Enabled = false;
+                this.txtConfirmarClave.Enabled = false;
+                #endregion
+
             }
             else if (mf == "Consulta")
             {
@@ -74,7 +105,11 @@ namespace UI.Desktop
             {
                 Persona p = new Persona();
                 PersonaActual = p;
-                PersonaActual.State = BusinessEntity.States.New; 
+                PersonaActual.State = BusinessEntity.States.New;
+
+                Usuario u = new Usuario();
+                UsuarioActual = u;
+                UsuarioActual.State = BusinessEntity.States.New;
 
                 PersonaActual.Nombre = this.txtNombre.Text;
                 PersonaActual.Apellido = this.txtApellido.Text;
@@ -88,6 +123,13 @@ namespace UI.Desktop
                 PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
                 PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
 
+
+                UsuarioActual.Nombre = this.txtNombre.Text;
+                UsuarioActual.Apellido = this.txtApellido.Text;
+                UsuarioActual.NombreUsuario = this.txtNombreUsuario.Text;
+                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                UsuarioActual.Email = this.txtEmail.Text;
+                UsuarioActual.Clave = this.txtClave.Text;
             }
             else if (mf == "Modificacion")
             {
@@ -103,12 +145,22 @@ namespace UI.Desktop
                 PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
                 PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
                 PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
+
+                UsuarioActual.Nombre = this.txtNombre.Text;
+                UsuarioActual.Apellido = this.txtApellido.Text;
+                UsuarioActual.NombreUsuario = this.txtNombreUsuario.Text;
+                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                UsuarioActual.Email = this.txtEmail.Text;
+                UsuarioActual.Clave = this.txtClave.Text;
+
                 PersonaActual.State = BusinessEntity.States.Modified;
+                UsuarioActual.State = BusinessEntity.States.Modified;
             }
 
             else if(mf == "Baja")
             {
                 PersonaActual.State = BusinessEntity.States.Deleted;
+                UsuarioActual.State = BusinessEntity.States.Deleted;
             }
 
         }
@@ -117,7 +169,15 @@ namespace UI.Desktop
         {
             MapearADatos();
             PersonaLogic pl = new PersonaLogic();
-            pl.Save(PersonaActual);
+            Persona p = pl.Save(PersonaActual);
+
+            if (!PersonaActual.State.Equals(BusinessEntity.States.Deleted))
+            {
+                UsuarioLogic ul = new UsuarioLogic();
+                UsuarioActual.IdPersona = p.ID;
+                ul.Save(UsuarioActual);
+            }
+           
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

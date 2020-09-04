@@ -102,7 +102,7 @@ namespace UI.Desktop
         //Oculta todo, lo uso para que alumno no pueda tocar nada
         private void ocultarMostrarTodo(bool mostrar)
         {
-            mnuUsuarios.Visible = mostrar;
+            mnuUsuarios.Visible = false;
             mnuMaterias.Visible = mostrar;
             mnuPlanes.Visible = mostrar;
             mnuEspecialidades.Visible = mostrar;
@@ -124,7 +124,6 @@ namespace UI.Desktop
                     this.ocultarMostrarTodo(false);
                     mnuMaterias.Visible = true;
                     mnuPlanes.Visible = true;
-                    mnuUsuarios.Visible = true;
 
                 }
                 if (Persona.TipoPersona == Persona.TipoPersonas.Profesor)

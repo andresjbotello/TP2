@@ -44,5 +44,9 @@ namespace Business.Logic
             return UsuarioData.GetOne(usuario, pass);
         }
 
+        public Usuario GetOneByPersona(Persona p)
+        {
+            return UsuarioData.GetOneByPersonaId(p.ID);
+        }
     }
 }
