@@ -11,79 +11,88 @@ namespace UI.Web
 {
 
 
-    public partial class Site
+    public partial class Home
     {
 
         /// <summary>
-        /// Control ContentPlaceHolderHead.
+        /// Control liUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderHead;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liUsuarios;
 
         /// <summary>
-        /// Control bodyForm.
+        /// Control liPersonas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPersonas;
 
         /// <summary>
-        /// Control CerrarSesion.
+        /// Control liEspecialidades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton CerrarSesion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liEspecialidades;
 
         /// <summary>
-        /// Control Home.
+        /// Control liPlanes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Home;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPlanes;
 
         /// <summary>
-        /// Control lbNombreUsuario.
+        /// Control liMaterias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNombreUsuario;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMaterias;
 
         /// <summary>
-        /// Control lbTipo.
+        /// Control liCursos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTipo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liCursos;
 
         /// <summary>
-        /// Control MenuItemLabel.
+        /// Control liComisiones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MenuItemLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liComisiones;
 
         /// <summary>
-        /// Control bodyContenPlaceHolder.
+        /// Control liInscripciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyContenPlaceHolder;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liInscripciones;
+
+        /// <summary>
+        /// Control liInscripcionesDC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liInscripcionesDC;
     }
 }

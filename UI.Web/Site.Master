@@ -1,17 +1,48 @@
-﻿<%@ AutoEventWireUp="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site" %>
-<html  xmlns="http://www.w3.org/1999/xhtml">
-	<head runat="server">
-		<title>Academia</title>
-	</head>
-	<body>
-		<form id="bodyForm" runat="server">
-			<asp:Menu runat="server" id="menu" DataSourceId="SiteMapDataSource"></asp:Menu>
-			<asp:SiteMapDataSource ID="SiteMapDataSource" runat="server"/>
-			<div>
-				<asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
-						
-				</asp:ContentPlaceHolder>
-			</div>
-		</form>
-	</body>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.Site" %>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+        
+    <head runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+         </asp:ContentPlaceHolder>
+        <title>Academia</title>
+        <style type="text/css">
+            .auto-style1 {
+                position: absolute;
+                float: right;
+                left: 1024px;
+                top: 15px;
+                width: 119px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="bodyForm" runat="server">
+            <div>
+                
+                <asp:LinkButton ID="CerrarSesion" runat="server" OnClick="LinkButton1_Click" style="margin-left:304px;" CssClass="auto-style1">Cerrar Sesion</asp:LinkButton>
+                <asp:LinkButton ID="Home" OnClick="GotoHome" runat="server">Home</asp:LinkButton>
+                 <br/>
+                <br />
+                <div>
+                Usuario: <asp:Label ID="lbNombreUsuario" runat="server" Text="Label"></asp:Label>
+                <br />
+                Tipo:
+                <asp:Label ID="lbTipo" runat="server" Text="Label"></asp:Label>
+                </div>
+                
+                <hr />
+                <br/>
+                <h3 style="align-content:center"><asp:Label ID="MenuItemLabel" runat="server" Text="Etiqueta" Visible="False" ForeColor="#333333"></asp:Label></h3>
+            </div>
+            
+            <div>
+                <asp:ContentPlaceHolder ID="bodyContenPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            
+        </form>
+    </body>
 </html>
