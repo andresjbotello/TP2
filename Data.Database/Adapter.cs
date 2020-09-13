@@ -8,7 +8,7 @@ namespace Data.Database
 {
     public class Adapter
     {
-        private SqlConnection _sqlConn; //new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=true;");
+        private SqlConnection _sqlConn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=true;");
 
         public SqlConnection SqlConn { get => _sqlConn; set => _sqlConn = value; }
 
@@ -18,8 +18,8 @@ namespace Data.Database
 
         protected void OpenConnection()
         {
-            string connectionstring = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
-            SqlConn = new SqlConnection(connectionstring);
+            //string connectionstring = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            //SqlConn = new SqlConnection(connectionstring);
             SqlConn.Open();
 
         }
