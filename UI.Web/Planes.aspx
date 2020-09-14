@@ -9,8 +9,7 @@
 &nbsp;
             <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
             &nbsp;
-            <asp:LinkButton ID="lbMostarListadoPlanes" runat="server" OnClick="lbMostarListadoPlanes_Click">Reporte planes</asp:LinkButton>
-    </asp:Panel>
+            </asp:Panel>
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False"
             SelectRowStyle-BackColor="Black"
             SelectRowStyle-Forecolor="White"

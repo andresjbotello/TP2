@@ -8,6 +8,7 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
          </asp:ContentPlaceHolder>
         <title>Academia</title>
+        <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
             .auto-style1 {
                 position: absolute;
@@ -20,8 +21,13 @@
     </head>
     <body>
         <form id="bodyForm" runat="server">
-            <div>
-                
+            <div>  
+                <asp:ScriptManager ID="ScriptManager1" runat="server">  
+                <Scripts>
+                    <asp:ScriptReference Path="~/Scripts/jquery-3.4.1.min.js" />
+                    <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
+                </Scripts>
+                </asp:ScriptManager>
                 <asp:LinkButton ID="CerrarSesion" runat="server" OnClick="LinkButton1_Click" style="margin-left:304px;" CssClass="auto-style1">Cerrar Sesion</asp:LinkButton>
                 <asp:LinkButton ID="Home" OnClick="GotoHome" runat="server">Home</asp:LinkButton>
                  <br/>
