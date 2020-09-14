@@ -117,7 +117,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("UPDATE materias SET desc_materia = @desc_materia, hs_semanales = @hs_semanales," +
-                    "hs_totales = @hs_totales, id_plan=@id_plan" +
+                    "hs_totales = @hs_totales, id_plan=@id_plan " +
                     "WHERE id_materia=@id", SqlConn);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
@@ -129,7 +129,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar la materia", Ex);
+                Exception ExcepcionManejada = new Exception("Error al actualizar la materia", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -180,7 +180,7 @@ namespace Data.Database
             }
             else if (materia.State == BusinessEntity.States.Modified)
             {
-                //this.Update(materia);
+                this.Update(materia);
             }
             materia.State = BusinessEntity.States.Unmodified;
         }
