@@ -42,15 +42,6 @@ namespace UI.Web
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// Control CerrarSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton CerrarSesion;
-
-        /// <summary>
         /// Control Home.
         /// </summary>
         /// <remarks>
@@ -78,21 +69,21 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Label lbTipo;
 
         /// <summary>
-        /// Control MenuItemLabel.
+        /// Control LinkButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MenuItemLabel;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
 
         /// <summary>
-        /// Control bodyContenPlaceHolder.
+        /// Control bodyContentPlaceHolder.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyContenPlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyContentPlaceHolder;
     }
 }

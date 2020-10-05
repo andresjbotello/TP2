@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
  
 </asp:Content>
-<asp:Content ID="MateriasContent" ContentPlaceHolderID="bodyContenPlaceHolder" runat="server">
+<asp:Content ID="MateriasContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanel" runat="server" ScrollBars="Vertical">
         <asp:Panel ID="gridActionPanel" runat="server">
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>

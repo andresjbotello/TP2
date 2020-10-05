@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 
-<asp:Content ID="PlanesContent" ContentPlaceHolderID="bodyContenPlaceHolder" runat="server">
+<asp:Content ID="PlanesContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanel" runat="server">
         <asp:Panel ID="gridActionPanel" runat="server">
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
