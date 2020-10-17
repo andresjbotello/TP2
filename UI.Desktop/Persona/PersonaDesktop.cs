@@ -60,8 +60,10 @@ namespace UI.Desktop
 
             this.txtNombreUsuario.Text = this.UsuarioActual.NombreUsuario;
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
-            this.txtClave.Text = this.UsuarioActual.Clave;
-            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+            //this.txtClave.Text = this.UsuarioActual.Clave;
+            //this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+            this.txtClave.Text = "";
+            this.txtConfirmarClave.Text = "";
 
             string mf = Convert.ToString(Modo);
             if (mf == "Alta" || mf == "Modificacion")
@@ -111,8 +113,6 @@ namespace UI.Desktop
                 UsuarioActual = u;
                 UsuarioActual.State = BusinessEntity.States.New;
 
-                PersonaActual.Nombre = this.txtNombre.Text;
-                PersonaActual.Apellido = this.txtApellido.Text;
                 PersonaActual.Nombre =  this.txtNombre.Text;
                 PersonaActual.Apellido = this.txtApellido.Text;
                 PersonaActual.Email = this.txtEmail.Text;

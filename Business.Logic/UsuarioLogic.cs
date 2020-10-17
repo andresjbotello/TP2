@@ -31,6 +31,9 @@ namespace Business.Logic
 
         public void Save(Business.Entities.Usuario obj)
         {
+            PasswordHasher pwd_hasher = new PasswordHasher();
+            string pwd_hashed = pwd_hasher.Generate(obj.Clave);
+            obj.Clave = pwd_hashed;
             UsuarioData.Save(obj);
         }
 
@@ -41,7 +44,17 @@ namespace Business.Logic
 
         public Usuario Login(string usuario, string pass)
         {
-            return UsuarioData.GetOne(usuario, pass);
+            Usuario usr = UsuarioData.GetOne(usuario, pass);
+            PasswordHasher pwd_hasher = new PasswordHasher();
+            bool res = pwd_hasher.IsValid(pass, usr.Clave);
+            if (res == true)
+            {
+                return usr;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Usuario GetOneByPersona(Persona p)

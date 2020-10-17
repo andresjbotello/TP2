@@ -4,6 +4,7 @@ using System.Text;
 using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace Data.Database
 {
@@ -145,9 +146,10 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where nombre_usuario = @nombre_usuario and clave = @clave ", SqlConn);
+                //SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where nombre_usuario = @nombre_usuario and clave = @clave ", SqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where nombre_usuario = @nombre_usuario ", SqlConn);
                 cmdUsuarios.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario;
-                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+                //cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
                 if (drUsuarios.Read())
@@ -239,6 +241,7 @@ namespace Data.Database
                     "INSERT INTO usuarios (nombre_usuario,clave,habilitado,nombre,apellido,email,id_persona)" +
                     "values(@nombre_usuario,@clave,@habilitado,@nombre,@apellido,@email,@id_persona)" +
                     "select @@identity",SqlConn);
+
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
