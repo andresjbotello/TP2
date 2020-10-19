@@ -1,6 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 
+
 <asp:Content ID="PlanesContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+
+     <style type="text/css">
+        #cardPlanes {
+            margin-top: 20px;
+        }
+    </style>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column">
+            <div id="cardPlanes" class="card">
+                <div class="card-header">ABM Planes</div>
+                <div class="card-body">
     <asp:Panel ID="gridPanel" runat="server">
         <asp:Panel ID="gridActionPanel" runat="server">
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
@@ -56,4 +68,8 @@
             <asp:ValidationSummary ID="ValidationSummaryUsuarios" runat="server" BackColor="White" ForeColor="#FF3300" ValidationGroup="vg" EnableClientScript=True Height="63px" Width="1461px" />
         </asp:Panel>
     </asp:Panel>
+                    </div>
+                </div>
+            </div>
+        </div>
 </asp:Content>

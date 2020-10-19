@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column">
             <div id="cardMaterias" class="card">
-                <div class="card-header">ABM Comisiones</div>
+                <div class="card-header">ABM Materias</div>
                 <div class="card-body">
                     <asp:Panel ID="gridPanel" runat="server" ScrollBars="Vertical">
                         <asp:Panel ID="gridActionPanel" runat="server">

@@ -28,7 +28,7 @@ namespace Data.Database
                     aluInscri.ID = (int)drAlumnosInscripciones["id_inscripcion"];
                     aluInscri.IDAlumno = (int)drAlumnosInscripciones["id_alumno"];
                     aluInscri.IDCurso = (int)drAlumnosInscripciones["id_curso"];
-                    aluInscri.Condicion = (string)drAlumnosInscripciones["condicion"];
+                    aluInscri.CondicionActual = (string)drAlumnosInscripciones["condicion"];
                     aluInscri.Nota = (int)drAlumnosInscripciones["nota"];
 
                     alumnos_inscripciones.Add(aluInscri);
@@ -66,7 +66,7 @@ namespace Data.Database
                     aluInscri.ID = (int)drAlumnosInscripciones["id_inscripcion"];
                     aluInscri.IDAlumno = (int)drAlumnosInscripciones["id_alumno"];
                     aluInscri.IDCurso = (int)drAlumnosInscripciones["id_curso"];
-                    aluInscri.Condicion = (string)drAlumnosInscripciones["condicion"];
+                    aluInscri.CondicionActual = (string)drAlumnosInscripciones["condicion"];
                     aluInscri.Nota = (int)drAlumnosInscripciones["nota"];
                 }
                 drAlumnosInscripciones.Close();
@@ -124,7 +124,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = aluInscri.ID;
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = aluInscri.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = aluInscri.IDCurso;
-                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar).Value = aluInscri.Condicion;
+                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar).Value = aluInscri.CondicionActual;
                 cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = aluInscri.Nota;
 
                 cmdSave.ExecuteNonQuery();
@@ -151,7 +151,7 @@ namespace Data.Database
 
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = aluInscri.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = aluInscri.IDCurso;
-                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar).Value = aluInscri.Condicion;
+                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar).Value = aluInscri.CondicionActual;
                 cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = aluInscri.Nota;
 
                 aluInscri.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
