@@ -116,6 +116,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Cursos.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DocentesCursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -292,6 +293,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocentesCursos.aspx.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocentesCursos.aspx.designer.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
