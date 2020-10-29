@@ -12,7 +12,6 @@
                 <div class="card-body">
                     <div id="menu">
 			            <ul>
-			                <li runat="server" id="liUsuarios"><a href="Usuarios.aspx">Usuarios</a></li>
                             <li runat="server" id="liPersonas"><a href="Personas.aspx">Personas</a></li>
                             <li runat="server" id="liEspecialidades"><a href="Especialidades.aspx">Especialidades</a></li>
                             <li runat="server" id="liPlanes"><a href="Planes.aspx">Planes</a></li>

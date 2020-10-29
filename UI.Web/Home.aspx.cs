@@ -39,7 +39,6 @@ namespace UI.Web
         private void mostrarMenu(bool mostrar)
         {
             liComisiones.Visible = mostrar;
-            liUsuarios.Visible = mostrar;
             liCursos.Visible = mostrar;
             liMaterias.Visible = mostrar;
             liPersonas.Visible = mostrar;

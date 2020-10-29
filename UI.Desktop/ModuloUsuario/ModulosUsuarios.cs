@@ -34,8 +34,8 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            DocenteCursoLogic dcl = new DocenteCursoLogic();
-            this.dgvModulosUsuarios.DataSource = dcl.GetAll();
+            ModuloUsuarioLogic mul = new ModuloUsuarioLogic();
+            this.dgvModulosUsuarios.DataSource = mul.GetAll();
         }
 
         private void DocentesCursos_Load(object sender, EventArgs e)
@@ -55,8 +55,8 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            DocenteCursoDesktop pd = new DocenteCursoDesktop(ApplicationForm.ModoForm.Alta);
-            pd.ShowDialog();
+            ModuloUsuarioDesktop mud = new ModuloUsuarioDesktop(ApplicationForm.ModoForm.Alta);
+            mud.ShowDialog();
             this.Listar();
         }
 
@@ -64,9 +64,9 @@ namespace UI.Desktop
         {
             if(this.dgvModulosUsuarios.SelectedRows.Count > 0) 
             {
-                int ID = ((DocenteCurso)this.dgvModulosUsuarios.SelectedRows[0].DataBoundItem).ID;
-                DocenteCursoDesktop dcd = new DocenteCursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                dcd.ShowDialog();
+                int ID = ((ModuloUsuario)this.dgvModulosUsuarios.SelectedRows[0].DataBoundItem).ID;
+                ModuloUsuarioDesktop mud = new ModuloUsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                mud.ShowDialog();
                 this.Listar();
             }
             else
@@ -80,8 +80,8 @@ namespace UI.Desktop
             if (this.dgvModulosUsuarios.SelectedRows.Count > 0)
             {
                 int ID = ((DocenteCurso)this.dgvModulosUsuarios.SelectedRows[0].DataBoundItem).ID;
-                DocenteCursoDesktop dcd = new DocenteCursoDesktop(ID, ApplicationForm.ModoForm.Baja);
-                dcd.ShowDialog();
+                ModuloUsuarioDesktop mud = new ModuloUsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+                mud.ShowDialog();
                 this.Listar();
             }
             else
