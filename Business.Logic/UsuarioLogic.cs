@@ -21,16 +21,18 @@ namespace Business.Logic
         public Usuario Login(string usuario, string pass)
         {
             Usuario usr = UsuarioData.GetOne(usuario, pass);
-            PasswordHasher pwd_hasher = new PasswordHasher();
-            bool res = pwd_hasher.IsValid(pass, usr.Clave);
-            if (res == true)
+            if (usr != null)
             {
-                return usr;
+                PasswordHasher pwd_hasher = new PasswordHasher();
+                bool res = pwd_hasher.IsValid(pass, usr.Clave);
+
+                if (res == true)
+                {
+                    return usr;
+                }
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
     }
 }

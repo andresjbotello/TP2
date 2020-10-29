@@ -29,26 +29,33 @@ namespace UI.Desktop
             string u = this.txtUsuario.Text;
             string p = this.txtPass.Text;
 
-            Usuario usr = UsuarioLogic.Login(u, p);
+            if (u != "" && p != "")
+            {
+                Usuario usr = UsuarioLogic.Login(u, p);
 
-            if (usr != null && usr.Habilitado) 
-            {
-                this.Hide();
-                formMain fm = new formMain(usr);
-                fm.ShowDialog();
-                formLogin fl = new formLogin();
-                fl.ShowDialog();
-            }
-        
-            else if(usr != null && usr.Habilitado == false)
-            {
-                MessageBox.Show("Usuario no habilitado", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (usr != null && usr.Habilitado)
+                {
+                    this.Hide();
+                    formMain fm = new formMain(usr);
+                    fm.ShowDialog();
+                    formLogin fl = new formLogin();
+                    fl.ShowDialog();
+                }
+                else if (usr != null && usr.Habilitado == false)
+                {
+                    MessageBox.Show("Usuario no habilitado", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingrese un usuario y contraseña.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void lnkOlvidePass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Es Ud. un usuario muy descuidado, haga memoria", "Olvidé mi contraseña", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

@@ -59,8 +59,8 @@
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.planAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lkModificarClave = new System.Windows.Forms.LinkLabel();
+            this.planAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -289,6 +289,7 @@
             // 
             // cmbBoxPlanes
             // 
+            this.cmbBoxPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxPlanes.FormattingEnabled = true;
             this.cmbBoxPlanes.Location = new System.Drawing.Point(58, 213);
             this.cmbBoxPlanes.Name = "cmbBoxPlanes";
@@ -297,6 +298,7 @@
             // 
             // cmbBoxTiposPersona
             // 
+            this.cmbBoxTiposPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxTiposPersona.FormattingEnabled = true;
             this.cmbBoxTiposPersona.Location = new System.Drawing.Point(334, 171);
             this.cmbBoxTiposPersona.Name = "cmbBoxTiposPersona";
@@ -307,7 +309,7 @@
             // 
             this.chkHabilitado.AutoSize = true;
             this.chkHabilitado.Location = new System.Drawing.Point(219, 2);
-            this.chkHabilitado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkHabilitado.Margin = new System.Windows.Forms.Padding(2);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 27;
@@ -347,7 +349,7 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(333, 212);
-            this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(222, 20);
             this.txtNombreUsuario.TabIndex = 31;
@@ -355,7 +357,7 @@
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(57, 254);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(2);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(109, 20);
@@ -364,15 +366,11 @@
             // txtConfirmarClave
             // 
             this.txtConfirmarClave.Location = new System.Drawing.Point(333, 254);
-            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(222, 20);
             this.txtConfirmarClave.TabIndex = 33;
-            // 
-            // planAdapterBindingSource
-            // 
-            this.planAdapterBindingSource.DataSource = typeof(Data.Database.PlanAdapter);
             // 
             // lkModificarClave
             // 
@@ -385,13 +383,17 @@
             this.lkModificarClave.Text = "Modificar Contraseña";
             this.lkModificarClave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkModificarClave_LinkClicked);
             // 
+            // planAdapterBindingSource
+            // 
+            this.planAdapterBindingSource.DataSource = typeof(Data.Database.PlanAdapter);
+            // 
             // PersonaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 350);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PersonaDesktop";
             this.Text = "Informacion de la persona";
             this.tableLayoutPanel1.ResumeLayout(false);
