@@ -16,6 +16,23 @@ namespace Business.Entities
         private bool _Habilitado;
         private int _idPersona;
 
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(int idUsuario, string nombreUsuario, string clave, string nombre, string apellido, string email, bool habilitado, int idPersona)
+        {
+            this.ID = idUsuario;
+            this.NombreUsuario = nombreUsuario;
+            this.Clave = clave;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Email = email;
+            this.Habilitado = habilitado;
+            this.IdPersona = idPersona;
+        }
+
         public string NombreUsuario { get => _NombreUsuario; set => _NombreUsuario = value; }
         public string Clave { get => _Clave; set => _Clave = value; }
         public string Nombre { get => _Nombre; set => _Nombre = value; }

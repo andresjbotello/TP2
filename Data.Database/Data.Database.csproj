@@ -52,6 +52,7 @@
     <Compile Include="ModuloUsuarioAdapter.cs" />
     <Compile Include="PersonaAdapter.cs" />
     <Compile Include="ModuloAdapter.cs" />
+    <Compile Include="PersonaUsuarioAdapter.cs" />
     <Compile Include="PlanAdapter.cs" />
     <Compile Include="MateriaAdapter.cs" />
     <Compile Include="UsuarioAdapter.cs" />

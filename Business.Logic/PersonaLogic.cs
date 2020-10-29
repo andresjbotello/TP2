@@ -39,10 +39,5 @@ namespace Business.Logic
             return PersonaData.Save(obj);
         }
 
-        public void Delete(int id)
-        {
-            PersonaData.Delete(id);
-        }
-
     }
 }

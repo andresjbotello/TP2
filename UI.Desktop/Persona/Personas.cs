@@ -35,7 +35,12 @@ namespace UI.Desktop
         public void Listar()
         {
             PersonaLogic pl = new PersonaLogic();
-            this.dgvPersonas.DataSource = pl.GetAll();
+            this.dgvPersonas.DataSource = pl.GetAll().ConvertAll<DataGridObject>(new Converter<Persona, DataGridObject>(PersonaToDataGridObject));
+        }
+
+        private static DataGridObject PersonaToDataGridObject(Persona p)
+        {
+            return new DataGridObject(p);
         }
 
         private void Personas_Load(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace UI.Desktop
         {
             if(this.dgvPersonas.SelectedRows.Count > 0) 
             {
-                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((DataGridObject)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
                 PersonaDesktop pd = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 pd.ShowDialog();
                 this.Listar();
@@ -79,7 +84,7 @@ namespace UI.Desktop
         {
             if (this.dgvPersonas.SelectedRows.Count > 0)
             {
-                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((DataGridObject)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
                 PersonaDesktop pd = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
                 pd.ShowDialog();
                 this.Listar();
@@ -89,5 +94,61 @@ namespace UI.Desktop
                 MessageBox.Show("Elija una fila para eliminarla");
             }
         }
+    }
+
+    class DataGridObject
+    {
+        int _id;
+
+        string _usuario;
+
+        string _nombre;
+
+        string _apellido;
+
+        string _direccion;
+
+        string _email;
+
+        string _telefono;
+
+        DateTime _fechaNacimiento;
+
+        int _legajo;
+
+        string _tipoPersona;
+
+        int _idPlan;
+
+        string _habilitado;
+
+        public DataGridObject(Persona p)
+        {
+            this.Id = p.ID;
+            this.Usuario = p.Usuario.NombreUsuario;
+            this.Nombre = p.Nombre;
+            this.Apellido = p.Apellido;
+            this.Direccion = p.Direccion;
+            this.Email = p.Email;
+            this.Telefono = p.Telefono;
+            this.FechaNacimiento = p.FechaNacimiento;
+            this.Legajo = p.Legajo;
+            this.TipoPersona = p.TipoPersona.ToString();
+            this.IdPlan = p.IDPlan;
+            this.Habilitado = (p.Usuario.Habilitado) ? "Si" : "No";
+        }
+
+        public int Id { get => _id; set => _id = value; }
+        public string Usuario { get => _usuario; set => _usuario = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string Apellido { get => _apellido; set => _apellido = value; }
+        public string Direccion { get => _direccion; set => _direccion = value; }
+        public string Email { get => _email; set => _email = value; }
+        public string Telefono { get => _telefono; set => _telefono = value; }
+        public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
+        public int Legajo { get => _legajo; set => _legajo = value; }
+        public string TipoPersona { get => _tipoPersona; set => _tipoPersona = value; }
+        public int IdPlan { get => _idPlan; set => _idPlan = value; }
+        public string Habilitado { get => _habilitado; set => _habilitado = value; }
     }
 }

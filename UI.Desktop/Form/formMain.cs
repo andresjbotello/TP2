@@ -26,19 +26,6 @@ namespace UI.Desktop
             Usuario = usr;
         }
 
-        
-        private void btn_abrirDGV(object sender, EventArgs e)
-        {
-            UI.Desktop.Usuarios usr = new UI.Desktop.Usuarios(Persona);
-            usr.ShowDialog();
-        }
-
-        private void mnuUsuarios_Click(object sender, EventArgs e)
-        {
-            UI.Desktop.Usuarios usr = new UI.Desktop.Usuarios(Persona);
-            usr.ShowDialog();
-        }
-
         private void mnuMaterias_Click(object sender, EventArgs e)
         {
             UI.Desktop.Materias mtr = new UI.Desktop.Materias(Persona);
@@ -102,7 +89,6 @@ namespace UI.Desktop
         //Oculta todo, lo uso para que alumno no pueda tocar nada
         private void mostrarMenu(bool mostrar)
         {
-            mnuUsuarios.Visible = false;
             mnuMaterias.Visible = mostrar;
             mnuPlanes.Visible = mostrar;
             mnuEspecialidades.Visible = mostrar;

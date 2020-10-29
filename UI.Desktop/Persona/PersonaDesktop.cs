@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
 using Data.Database;
+using System.Runtime.InteropServices;
 
 namespace UI.Desktop
 {
@@ -17,10 +18,6 @@ namespace UI.Desktop
     {
         private Persona _personaActual;
         public Persona PersonaActual { get => _personaActual; set => _personaActual = value; }
-
-        private Usuario _usuarioActual;
-        public Usuario UsuarioActual { get => _usuarioActual; set => _usuarioActual = value; }
-
 
 
         public PersonaDesktop()
@@ -39,8 +36,6 @@ namespace UI.Desktop
             Modo = modo;
             PersonaLogic pl = new PersonaLogic();
             PersonaActual = pl.GetOne(ID);
-            UsuarioLogic ul = new UsuarioLogic();
-            UsuarioActual = ul.GetOneByPersona(PersonaActual);
 
             MapearDeDatos();
         }
@@ -58,10 +53,10 @@ namespace UI.Desktop
             this.cmbBoxTiposPersona.SelectedIndex = SeleccionarTipoPersona();
             this.cmbBoxPlanes.SelectedIndex = SeleccionarPlan();
 
-            this.txtNombreUsuario.Text = this.UsuarioActual.NombreUsuario;
-            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
-            //this.txtClave.Text = this.UsuarioActual.Clave;
-            //this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+            this.txtNombreUsuario.Text = this.PersonaActual.Usuario.NombreUsuario;
+            this.chkHabilitado.Checked = this.PersonaActual.Usuario.Habilitado;
+            //this.txtClave.Text = this.PersonaActual.Usuario.Clave;
+            //this.txtConfirmarClave.Text = this.PersonaActual.Usuario.Clave;
             this.txtClave.Text = "";
             this.txtConfirmarClave.Text = "";
 
@@ -108,59 +103,19 @@ namespace UI.Desktop
                 Persona p = new Persona();
                 PersonaActual = p;
                 PersonaActual.State = BusinessEntity.States.New;
+                this.SetPersonaAttributesFromForm();
 
-                Usuario u = new Usuario();
-                UsuarioActual = u;
-                UsuarioActual.State = BusinessEntity.States.New;
-
-                PersonaActual.Nombre =  this.txtNombre.Text;
-                PersonaActual.Apellido = this.txtApellido.Text;
-                PersonaActual.Email = this.txtEmail.Text;
-                PersonaActual.Direccion = this.txtDireccion.Text;
-                PersonaActual.Telefono = this.txtTelefono.Text;
-                PersonaActual.FechaNacimiento = this.dtFechaNacimiento.Value;
-                PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
-                PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
-
-
-                UsuarioActual.Nombre = this.txtNombre.Text;
-                UsuarioActual.Apellido = this.txtApellido.Text;
-                UsuarioActual.NombreUsuario = this.txtNombreUsuario.Text;
-                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                UsuarioActual.Email = this.txtEmail.Text;
-                UsuarioActual.Clave = this.txtClave.Text;
             }
             else if (mf == "Modificacion")
             {
                 this.txtID.Text = PersonaActual.ID.ToString();
-                PersonaActual.Nombre = this.txtNombre.Text;
-                PersonaActual.Apellido = this.txtApellido.Text;
-                PersonaActual.Nombre = this.txtNombre.Text;
-                PersonaActual.Apellido = this.txtApellido.Text;
-                PersonaActual.Email = this.txtEmail.Text;
-                PersonaActual.Direccion = this.txtDireccion.Text;
-                PersonaActual.Telefono = this.txtTelefono.Text;
-                PersonaActual.FechaNacimiento = this.dtFechaNacimiento.Value;
-                PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
-                PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
-
-                UsuarioActual.Nombre = this.txtNombre.Text;
-                UsuarioActual.Apellido = this.txtApellido.Text;
-                UsuarioActual.NombreUsuario = this.txtNombreUsuario.Text;
-                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                UsuarioActual.Email = this.txtEmail.Text;
-                UsuarioActual.Clave = this.txtClave.Text;
-
+                this.SetPersonaAttributesFromForm();
                 PersonaActual.State = BusinessEntity.States.Modified;
-                UsuarioActual.State = BusinessEntity.States.Modified;
             }
 
             else if(mf == "Baja")
             {
                 PersonaActual.State = BusinessEntity.States.Deleted;
-                UsuarioActual.State = BusinessEntity.States.Deleted;
             }
 
         }
@@ -169,15 +124,7 @@ namespace UI.Desktop
         {
             MapearADatos();
             PersonaLogic pl = new PersonaLogic();
-            Persona p = pl.Save(PersonaActual);
-
-            if (!PersonaActual.State.Equals(BusinessEntity.States.Deleted))
-            {
-                UsuarioLogic ul = new UsuarioLogic();
-                UsuarioActual.IdPersona = p.ID;
-                ul.Save(UsuarioActual);
-            }
-           
+            pl.Save(PersonaActual);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -273,6 +220,25 @@ namespace UI.Desktop
             };
 
             return -1;
+        }
+
+        private void SetPersonaAttributesFromForm()
+        {
+            PersonaActual.Nombre = this.txtNombre.Text;
+            PersonaActual.Apellido = this.txtApellido.Text;
+            PersonaActual.Email = this.txtEmail.Text;
+            PersonaActual.Direccion = this.txtDireccion.Text;
+            PersonaActual.Telefono = this.txtTelefono.Text;
+            PersonaActual.FechaNacimiento = this.dtFechaNacimiento.Value;
+            PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
+            PersonaActual.SetTipoPersonaById((Convert.ToInt32((this.cmbBoxTiposPersona.SelectedItem as dynamic).Value)));
+            PersonaActual.IDPlan = Convert.ToInt32((this.cmbBoxPlanes.SelectedItem as dynamic).Value);
+            PersonaActual.Usuario.Nombre = this.txtNombre.Text;
+            PersonaActual.Usuario.Apellido = this.txtApellido.Text;
+            PersonaActual.Usuario.NombreUsuario = this.txtNombreUsuario.Text;
+            PersonaActual.Usuario.Habilitado = this.chkHabilitado.Checked;
+            PersonaActual.Usuario.Email = this.txtEmail.Text;
+            PersonaActual.Usuario.Clave = this.txtClave.Text;
         }
 
     }

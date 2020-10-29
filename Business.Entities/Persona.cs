@@ -17,6 +17,27 @@ namespace Business.Entities
         private string _Nombre;
         private string _Telefono;
         private TipoPersonas _TipoPersona;
+        private Usuario _usuario;
+
+        public Persona()
+        {
+            Usuario = new Usuario();
+        }
+
+        public Persona(int id, string apellido, string direccion, string email, DateTime fechaNacimiento, int idPlan, int legajo, string nombre, string telefono, int tipoPersona, Usuario usuario)
+        {
+            this.ID = id;
+            this.Apellido = apellido;
+            this.Direccion = direccion;
+            this.Email = email;
+            this.FechaNacimiento = fechaNacimiento;
+            this.IDPlan = idPlan;
+            this.Legajo = legajo;
+            this.Nombre = nombre;
+            this.Telefono = telefono;
+            this.SetTipoPersonaById(tipoPersona);
+            this.Usuario = usuario;
+        }
 
         public string Apellido { get => _Apellido; set => _Apellido = value; }
         public string Direccion { get => _Direccion; set => _Direccion = value; }
@@ -27,6 +48,7 @@ namespace Business.Entities
         public string Nombre { get => _Nombre; set => _Nombre = value; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public TipoPersonas TipoPersona { get => _TipoPersona; set => _TipoPersona = value; }
+        public Usuario Usuario { get => _usuario; set => _usuario = value; }
 
         public enum TipoPersonas
         {

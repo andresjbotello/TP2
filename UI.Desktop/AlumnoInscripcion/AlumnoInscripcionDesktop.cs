@@ -42,7 +42,7 @@ namespace UI.Desktop
             this.txtIDInscripcion.Text = this.AlumnoInscripcionActual.ID.ToString();
             this.txtIDAlumno.Text = this.AlumnoInscripcionActual.IDAlumno.ToString();
             this.txtIDCurso.Text = this.AlumnoInscripcionActual.IDCurso.ToString();
-            this.txtCondicion.Text = this.AlumnoInscripcionActual.Condicion;
+            this.txtCondicion.Text = this.AlumnoInscripcionActual.CondicionActual;
             this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
 
             string mf = Convert.ToString(Modo);
@@ -73,7 +73,7 @@ namespace UI.Desktop
 
                 AlumnoInscripcionActual.IDAlumno = Convert.ToInt32(this.txtIDAlumno.Text);
                 AlumnoInscripcionActual.IDCurso = Convert.ToInt32(this.txtIDCurso.Text);
-                AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
+                AlumnoInscripcionActual.CondicionActual = this.txtCondicion.Text;
                 AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
 
             }
@@ -82,7 +82,7 @@ namespace UI.Desktop
                 this.txtIDInscripcion.Text = AlumnoInscripcionActual.ID.ToString();
                 AlumnoInscripcionActual.IDAlumno = Convert.ToInt32(this.txtIDAlumno.Text);
                 AlumnoInscripcionActual.IDCurso = Convert.ToInt32(this.txtIDCurso.Text);
-                AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
+                AlumnoInscripcionActual.CondicionActual = this.txtCondicion.Text;
                 AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
                 AlumnoInscripcionActual.State = BusinessEntity.States.Modified;
             }

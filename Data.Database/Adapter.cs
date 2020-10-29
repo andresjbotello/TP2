@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace Data.Database
 {
@@ -14,7 +15,20 @@ namespace Data.Database
 
         const string consKeyDefaultCnnString = "ConnStringExpress";
 
-        
+        protected SqlTransaction BeginTransaction()
+        {
+            if (SqlConn == null)
+            {
+                this.OpenConnection();
+              
+            }
+            else if (SqlConn.State.Equals(ConnectionState.Closed))
+            {
+                SqlConn.Open();
+            }
+
+            return SqlConn.BeginTransaction();
+        }
 
         protected void OpenConnection()
         {
