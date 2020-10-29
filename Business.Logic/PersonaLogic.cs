@@ -34,9 +34,27 @@ namespace Business.Logic
             return PersonaData.GetAll(tipoPersonas);
         }
 
-        public Persona Save(Persona obj)
+        public Persona Save(Persona obj, bool nuevaClave)
         {
+
+            obj = this.VerificarClave(obj, nuevaClave);
+
             return PersonaData.Save(obj);
+        }
+
+        private Persona VerificarClave(Persona p, bool nuevaClave)
+        {
+
+            if (nuevaClave)
+            {
+                PasswordHasher pwd_hasher = new PasswordHasher();
+
+                string pwd_hashed = pwd_hasher.Generate(p.Usuario.Clave);
+
+                p.Usuario.Clave = pwd_hashed;
+            }
+
+            return p;
         }
 
     }

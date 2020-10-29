@@ -16,6 +16,8 @@ namespace UI.Desktop
 {
     public partial class PersonaDesktop : ApplicationForm
     {
+        private bool _cambiaClave = true;
+
         private Persona _personaActual;
         public Persona PersonaActual { get => _personaActual; set => _personaActual = value; }
 
@@ -29,6 +31,10 @@ namespace UI.Desktop
         public PersonaDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            if (Modo.Equals(ModoForm.Alta))
+            {
+                this.lkModificarClave.Visible = false;
+            }
         }
 
         public PersonaDesktop(int ID, ModoForm modo) : this()
@@ -36,8 +42,31 @@ namespace UI.Desktop
             Modo = modo;
             PersonaLogic pl = new PersonaLogic();
             PersonaActual = pl.GetOne(ID);
-
+            if (!Modo.Equals(ModoForm.Alta) && !Modo.Equals(ModoForm.Baja))
+            {
+                this._cambiaClave = false;
+                this.ChequearVisibilidadCamposClave();
+            }
+            else
+            {
+                this.lkModificarClave.Visible = false;
+            }
+           
             MapearDeDatos();
+        }
+
+        private void ChequearVisibilidadCamposClave()
+        {
+            this.lblClave.Visible = this._cambiaClave;
+            this.txtClave.Visible = this._cambiaClave;
+            this.lblConfirmarClave.Visible = this._cambiaClave;
+            this.txtConfirmarClave.Visible = this._cambiaClave;
+
+            if (this._cambiaClave)
+            {
+                this.txtClave.Text = "";
+                this.txtConfirmarClave.Text = "";
+            }
         }
 
         public override void MapearDeDatos()
@@ -55,8 +84,6 @@ namespace UI.Desktop
 
             this.txtNombreUsuario.Text = this.PersonaActual.Usuario.NombreUsuario;
             this.chkHabilitado.Checked = this.PersonaActual.Usuario.Habilitado;
-            //this.txtClave.Text = this.PersonaActual.Usuario.Clave;
-            //this.txtConfirmarClave.Text = this.PersonaActual.Usuario.Clave;
             this.txtClave.Text = "";
             this.txtConfirmarClave.Text = "";
 
@@ -124,7 +151,7 @@ namespace UI.Desktop
         {
             MapearADatos();
             PersonaLogic pl = new PersonaLogic();
-            pl.Save(PersonaActual);
+            pl.Save(PersonaActual, this._cambiaClave);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -238,8 +265,21 @@ namespace UI.Desktop
             PersonaActual.Usuario.NombreUsuario = this.txtNombreUsuario.Text;
             PersonaActual.Usuario.Habilitado = this.chkHabilitado.Checked;
             PersonaActual.Usuario.Email = this.txtEmail.Text;
-            PersonaActual.Usuario.Clave = this.txtClave.Text;
+
+            if (this._cambiaClave)
+            {
+                PersonaActual.Usuario.Clave = this.txtClave.Text;
+            }
+            
         }
 
+        private void lkModificarClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this._cambiaClave = !this._cambiaClave;
+
+            this.lkModificarClave.Text = (this._cambiaClave) ? "Volver atrás" : "Modificar contraseña";
+
+            this.ChequearVisibilidadCamposClave();
+        }
     }
 }
