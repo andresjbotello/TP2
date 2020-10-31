@@ -33,9 +33,21 @@ namespace UI.Desktop
         public CursoDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             CursoLogic cl = new CursoLogic();
             CursoActual = cl.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields() 
+        {
+            this.txtCal.Enabled = false;
+            this.txtCupo.Enabled = false;
+            this.cmbBoxComisiones.Enabled = false;
+            this.cmbBoxMaterias.Enabled = false;
         }
 
         public override void MapearDeDatos()
@@ -73,7 +85,7 @@ namespace UI.Desktop
                 CursoActual.State = BusinessEntity.States.New;
 
                 CursoActual.IDMateria = Convert.ToInt32((this.cmbBoxMaterias.SelectedItem as dynamic).Value);
-                //CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
+                CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
                 CursoActual.AnioCalendario = Convert.ToInt32(this.txtCal.Text);
                 CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
 
@@ -82,7 +94,7 @@ namespace UI.Desktop
             {
                 this.txtID.Text = CursoActual.ID.ToString();
                 CursoActual.IDMateria = Convert.ToInt32((this.cmbBoxMaterias.SelectedItem as dynamic).Value);
-                //CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
+                CursoActual.IDComision = Convert.ToInt32((this.cmbBoxComisiones.SelectedItem as dynamic).Value);
                 CursoActual.AnioCalendario = Convert.ToInt32(this.txtCal.Text);
                 CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
 
@@ -143,24 +155,23 @@ namespace UI.Desktop
 
         private void FillComboBoxComisiones()
         {
-            /*
-                ComisionLogic com = new ComisionLogic();
+            
+            ComisionLogic com = new ComisionLogic();
 
-                List<Comision> comisiones = com.GetAll();
+            List<Comision> comisiones = com.GetAll();
 
-                cmbBoxComisiones.DisplayMember = "Text";
-                cmbBoxComisiones.ValueMember = "Value";
+            cmbBoxComisiones.DisplayMember = "Text";
+            cmbBoxComisiones.ValueMember = "Value";
 
-                foreach (Comision c in comisiones)
+            foreach (Comision c in comisiones)
+            {
+                cmbBoxComisiones.Items.Add(new
                 {
-                    cmbBoxComisiones.Items.Add(new
-                    {
-                        Text = c.Descripcion,
-                        Value = c.ID.ToString()
-                    }
-                    );
+                    Text = c.Descripcion,
+                    Value = c.ID.ToString()
                 }
-            */
+                );
+            } 
         }
 
         private int SeleccionarMateria()

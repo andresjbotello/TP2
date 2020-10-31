@@ -33,9 +33,19 @@ namespace UI.Desktop
         public PlanDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             PlanLogic pl = new PlanLogic();
             PlanActual = pl.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.txtDescripcion.Enabled = false;
+            this.cmbBoxEspecialidades.Enabled = false;
         }
 
         public override void MapearDeDatos()

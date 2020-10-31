@@ -64,7 +64,7 @@ namespace UI.Desktop
         {
             if (this.dgvComisiones.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Curso)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
                 ComisionDesktop cd = new ComisionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 cd.ShowDialog();
                 this.Listar();
@@ -79,8 +79,8 @@ namespace UI.Desktop
         {
             if (this.dgvComisiones.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Curso)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-                CursoDesktop cd = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
+                int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                ComisionDesktop cd = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
                 cd.ShowDialog();
                 this.Listar();
             }

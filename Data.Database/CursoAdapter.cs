@@ -145,7 +145,7 @@ namespace Data.Database
                     "values(@id_materia,@id_comision,@anio_calendario,@cupo)" +
                     "select @@identity", SqlConn);
 
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
+                //cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
                 cmdSave.Parameters.Add("@id_materia", SqlDbType.Int).Value = curso.IDMateria;
                 cmdSave.Parameters.Add("@id_comision", SqlDbType.Int).Value = curso.IDComision;
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = curso.AnioCalendario;

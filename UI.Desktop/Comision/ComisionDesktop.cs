@@ -32,9 +32,20 @@ namespace UI.Desktop
         public ComisionDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             ComisionLogic comLogic = new ComisionLogic();
             ComActual = comLogic.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.txtAnioEspecialidad.Enabled = false;
+            this.txtDescCom.Enabled = false;
+            this.txtIDPlan.Enabled = false;
         }
 
         public override void MapearDeDatos()

@@ -31,9 +31,21 @@ namespace UI.Desktop
         public MateriaDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja") 
+            {
+                ReadOnlyFields();
+            }
             MateriaLogic ml = new MateriaLogic();
             MateriaActual = ml.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.txtHSSemanales.Enabled = false;
+            this.txtHSTotales.Enabled = false;
+            this.txtMateria.Enabled = false;
+            this.cmbBoxPlanes.Enabled = false;
         }
 
         public override void MapearDeDatos()

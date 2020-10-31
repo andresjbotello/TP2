@@ -32,9 +32,18 @@ namespace UI.Desktop
         public ModuloDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             ModuloLogic mdl = new ModuloLogic();
             ModuloActual = mdl.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.txtDescripcion.Enabled = false;
         }
 
         public override void MapearDeDatos()

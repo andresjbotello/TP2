@@ -32,9 +32,20 @@ namespace UI.Desktop
         public DocenteCursoDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             DocenteCursoLogic dcl = new DocenteCursoLogic();
             DocenteCursoActual = dcl.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.cmbBoxCursos.Enabled = false;
+            this.cmbBoxDocentes.Enabled = false;
+            this.cmbBoxTiposCargo.Enabled = false;
         }
 
         public override void MapearDeDatos()

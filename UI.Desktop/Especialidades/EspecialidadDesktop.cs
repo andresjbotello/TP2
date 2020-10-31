@@ -32,9 +32,18 @@ namespace UI.Desktop
         public EspecialidadDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
+            if (Convert.ToString(modo) == "Baja")
+            {
+                ReadOnlyFields();
+            }
             EspecialidadLogic el = new EspecialidadLogic();
             EspecialidadActual = el.GetOne(ID);
             MapearDeDatos();
+        }
+
+        public void ReadOnlyFields()
+        {
+            this.txtDescripcion.Enabled = false;
         }
 
         public override void MapearDeDatos()

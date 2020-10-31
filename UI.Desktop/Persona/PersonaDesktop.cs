@@ -218,7 +218,7 @@ namespace UI.Desktop
                     Text = texto,
                     Value = tipoCargo.ToString()
                 }
-);
+                );
             }
 
         }
