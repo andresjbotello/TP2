@@ -13,7 +13,7 @@ namespace Data.Database
 
         public SqlConnection SqlConn { get => _sqlConn; set => _sqlConn = value; }
 
-        const string consKeyDefaultCnnString = "ConnStringExpress";
+        const string consKeyDefaultCnnString = "ConnStringLocal";
 
         protected SqlTransaction BeginTransaction()
         {

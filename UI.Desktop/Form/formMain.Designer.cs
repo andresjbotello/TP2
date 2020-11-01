@@ -41,6 +41,9 @@
             this.mnuDocentesConCursos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +51,8 @@
             // 
             this.mnsPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuArchivo});
+            this.mnuArchivo,
+            this.reportesToolStripMenuItem});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
             this.mnsPrincipal.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -151,6 +155,29 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.planesToolStripMenuItem,
+            this.personasToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // planesToolStripMenuItem
+            // 
+            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem.Text = "Planes";
+            this.planesToolStripMenuItem.Click += new System.EventHandler(this.planesToolStripMenuItem_Click);
+            // 
+            // personasToolStripMenuItem
+            // 
+            this.personasToolStripMenuItem.Name = "personasToolStripMenuItem";
+            this.personasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personasToolStripMenuItem.Text = "Personas";
+            this.personasToolStripMenuItem.Click += new System.EventHandler(this.personasToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +212,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
         private System.Windows.Forms.ToolStripMenuItem modulosUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
     }
 }

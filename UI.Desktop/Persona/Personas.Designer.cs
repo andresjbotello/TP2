@@ -48,7 +48,7 @@
             this.Fecha_nac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo_Persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Habilitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -107,7 +107,7 @@
             this.Fecha_nac,
             this.Legajo,
             this.Tipo_Persona,
-            this.ID_Plan,
+            this.Plan,
             this.Habilitado});
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -269,14 +269,14 @@
             this.Tipo_Persona.ReadOnly = true;
             this.Tipo_Persona.Width = 125;
             // 
-            // ID_Plan
+            // Plan
             // 
-            this.ID_Plan.DataPropertyName = "IdPlan";
-            this.ID_Plan.HeaderText = "ID Plan";
-            this.ID_Plan.MinimumWidth = 6;
-            this.ID_Plan.Name = "ID_Plan";
-            this.ID_Plan.ReadOnly = true;
-            this.ID_Plan.Width = 125;
+            this.Plan.DataPropertyName = "Plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 6;
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            this.Plan.Width = 125;
             // 
             // Habilitado
             // 
@@ -328,7 +328,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_nac;
         private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_Persona;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Habilitado;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using UI.Desktop.Report;
 
 namespace UI.Desktop
 {
@@ -129,6 +130,16 @@ namespace UI.Desktop
             Application.Exit();
         }
 
-        
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formReportePlanes rplanes = new formReportePlanes();
+            rplanes.ShowDialog();
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formReportePersonas frp = new formReportePersonas();
+            frp.ShowDialog();
+        }
     }
 }

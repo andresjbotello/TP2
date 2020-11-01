@@ -18,7 +18,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona INNER JOIN planes on planes.id_plan = personas.id_plan", SqlConn);
 
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
@@ -53,7 +53,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona where tipo_persona = @tipo_persona", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona INNER JOIN planes on planes.id_plan = personas.id_plan where tipo_persona = @tipo_persona", SqlConn);
                 cmdPersonas.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = (int) tipoPersonas;
 
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
@@ -88,7 +88,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona where personas.id_persona = @id", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas INNER JOIN usuarios ON usuarios.id_persona = personas.id_persona INNER JOIN planes on planes.id_plan = personas.id_plan where personas.id_persona = @id", SqlConn);
                 cmdPersonas.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
@@ -208,7 +208,7 @@ namespace Data.Database
                 (bool)drPersonas["habilitado"],
                 (int)drPersonas["id_persona"]
             );
-
+            Plan pln = new Plan((int)drPersonas["id_plan"], (string)drPersonas["desc_plan"], (int)drPersonas["id_especialidad"]);
             Persona persona = new Persona(
                 (int)drPersonas["id_persona"],
                 (string)drPersonas["apellido"],
@@ -220,7 +220,7 @@ namespace Data.Database
                 (string)drPersonas["nombre"],
                 (string)drPersonas["telefono"],
                 (int)drPersonas["tipo_persona"],
-                usuario
+                usuario, pln
             );
 
             return persona;

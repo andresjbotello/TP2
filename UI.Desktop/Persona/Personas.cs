@@ -118,7 +118,7 @@ namespace UI.Desktop
 
         string _tipoPersona;
 
-        int _idPlan;
+        string _plan;
 
         string _habilitado;
 
@@ -134,7 +134,7 @@ namespace UI.Desktop
             this.FechaNacimiento = p.FechaNacimiento;
             this.Legajo = p.Legajo;
             this.TipoPersona = p.TipoPersona.ToString();
-            this.IdPlan = p.IDPlan;
+            this.Plan = p.Plan.Descripcion;
             this.Habilitado = (p.Usuario.Habilitado) ? "Si" : "No";
         }
 
@@ -148,7 +148,7 @@ namespace UI.Desktop
         public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
         public int Legajo { get => _legajo; set => _legajo = value; }
         public string TipoPersona { get => _tipoPersona; set => _tipoPersona = value; }
-        public int IdPlan { get => _idPlan; set => _idPlan = value; }
+        public string Plan { get => _plan; set => _plan = value; }
         public string Habilitado { get => _habilitado; set => _habilitado = value; }
     }
 }
