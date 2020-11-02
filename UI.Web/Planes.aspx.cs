@@ -255,9 +255,9 @@ namespace UI.Web
 
         }
 
-        protected void lbMostarListadoPlanes_Click(object sender, EventArgs e)
+        protected void reporteCursos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/Reportes/ReportePlanes.aspx");
+            Response.Redirect("/Report/reportePlanes.aspx");
         }
     }
 }

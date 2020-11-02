@@ -151,7 +151,15 @@ namespace UI.Desktop
         {
             MapearADatos();
             PersonaLogic pl = new PersonaLogic();
-            pl.Save(PersonaActual, this._cambiaClave);
+            if (_cambiaClave && PersonaActual.Usuario.Clave.Length < 8)
+            {
+                MessageBox.Show("La password debe ser mayor o igual a 8 caracteres");
+            }
+            else
+            {
+                pl.Save(PersonaActual, this._cambiaClave);
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

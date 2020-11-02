@@ -206,5 +206,9 @@ namespace UI.Web
 
         }
 
+        protected void lnkReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Report/reporteEspecialidades.aspx");
+        }
     }
 }

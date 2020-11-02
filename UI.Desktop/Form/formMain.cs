@@ -96,7 +96,11 @@ namespace UI.Desktop
             mnuCursos.Visible = mostrar;
             mnuPersonas.Visible = mostrar;
             mnuModulos.Visible = mostrar;
+            mnuModUsuarios.Visible = mostrar;
             mnuDocentesConCursos.Visible = mostrar;
+            tsmReportePersona.Visible = mostrar;
+            tsmReportePlanes.Visible = mostrar;
+            mnuReportes.Visible = mostrar;
         }
 
 

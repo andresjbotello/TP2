@@ -20,7 +20,7 @@
             <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
 &nbsp;
             <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
-            &nbsp;
+            &nbsp; &nbsp;
             </asp:Panel>
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False"
             SelectRowStyle-BackColor="Black"

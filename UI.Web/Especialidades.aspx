@@ -17,6 +17,7 @@
         <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
         <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
+            <asp:LinkButton ID="lnkReporte" runat="server" OnClick="lnkReporte_Click">Reportes</asp:LinkButton>
     </asp:Panel>
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False"
             SelectRowStyle-BackColor="Black"

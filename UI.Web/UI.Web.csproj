@@ -127,7 +127,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Comisiones.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -136,14 +135,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Cursos.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="DocentesCursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Inscripciones.aspx" />
     <Content Include="Personas.aspx" />
-    <Content Include="Report\reportePlanes.aspx" />
+    <Content Include="Report\reporteEspecialidades.aspx" />
+    <Content Include="Report\reporteModulos.aspx" />
     <Content Include="Resources\logoutn.png" />
     <Content Include="Resources\utn-background.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -309,26 +308,12 @@
     <Compile Include="Comisiones.aspx.designer.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cursos.aspx.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocentesCursos.aspx.cs">
       <DependentUpon>DocentesCursos.aspx</DependentUpon>
@@ -390,12 +375,19 @@
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\reportePlanes.aspx.cs">
-      <DependentUpon>reportePlanes.aspx</DependentUpon>
+    <Compile Include="Report\reporteEspecialidades.aspx.cs">
+      <DependentUpon>reporteEspecialidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Report\reportePlanes.aspx.designer.cs">
-      <DependentUpon>reportePlanes.aspx</DependentUpon>
+    <Compile Include="Report\reporteEspecialidades.aspx.designer.cs">
+      <DependentUpon>reporteEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\reporteModulos.aspx.cs">
+      <DependentUpon>reporteModulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\reporteModulos.aspx.designer.cs">
+      <DependentUpon>reporteModulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -412,6 +404,16 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Report\tp2_Especialidades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tp2_Especialidades.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\tp2_Modulos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tp2_Modulos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -444,6 +446,28 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Report\tp2_Especialidades.xsc">
+      <DependentUpon>tp2_Especialidades.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\tp2_Especialidades.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tp2_Especialidades.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Report\tp2_Especialidades.xss">
+      <DependentUpon>tp2_Especialidades.xsd</DependentUpon>
+    </Content>
+    <Content Include="Report\tp2_Modulos.xsc">
+      <DependentUpon>tp2_Modulos.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\tp2_Modulos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tp2_Modulos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Report\tp2_Modulos.xss">
+      <DependentUpon>tp2_Modulos.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -468,7 +492,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Report\repPlanes.rdlc" />
+    <EmbeddedResource Include="Report\reporteEspecialidades.rdlc" />
+    <EmbeddedResource Include="Report\reporteModulos.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
