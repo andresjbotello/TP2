@@ -17,21 +17,29 @@ namespace UI.Web
             Session["curso_id"] = null;
             Usuario usu = (Usuario)this.Session["usuario"];
             PersonaLogic plo = new PersonaLogic();
-            Persona p = plo.GetOne(usu.ID);
-            if (p.TipoPersona == Persona.TipoPersonas.Alumno)
+            if (usu != null)
             {
-                this.mostrarMenu(false);
-                this.liInscripciones.Visible = true;
+                Persona p = plo.GetOne(usu.ID);
+                if (p.TipoPersona == Persona.TipoPersonas.Alumno)
+                {
+                    this.mostrarMenu(false);
+                    this.liInscripciones.Visible = true;
+                }
+                if (p.TipoPersona == Persona.TipoPersonas.Profesor)
+                {
+                    this.mostrarMenu(false);
+                    this.liInscripcionesDC.Visible = true;
+                }
+                if (p.TipoPersona == Persona.TipoPersonas.Admin)
+                {
+                    this.mostrarMenu(true);
+                }
             }
-            if (p.TipoPersona == Persona.TipoPersonas.Profesor)
+            else
             {
-                this.mostrarMenu(false);
-                this.liInscripcionesDC.Visible = true;
+                Response.Redirect("Login.aspx");
             }
-            if (p.TipoPersona == Persona.TipoPersonas.Admin)
-            {
-                this.mostrarMenu(true);
-            }
+           
 
         }
 
@@ -49,3 +57,5 @@ namespace UI.Web
         }
     }
 }
+
+

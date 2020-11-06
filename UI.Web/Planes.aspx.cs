@@ -86,18 +86,42 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Usuario usu = (Usuario)this.Session["usuario"];
+            PersonaLogic plo = new PersonaLogic();
+            if (usu != null)
             {
-                this.LoadGrid();
-                Label mpLabel;
-                mpLabel = (Label)Master.FindControl("MenuItemLabel");
-                if (mpLabel != null)
+                Persona p = plo.GetOne(usu.ID);
+                if (p.TipoPersona == Persona.TipoPersonas.Alumno)
                 {
-                    mpLabel.Visible = true;
-                    mpLabel.Text = "Planes";
+                    Response.Redirect("Home.aspx");
+                }
+                if (p.TipoPersona == Persona.TipoPersonas.Profesor)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+                if (p.TipoPersona == Persona.TipoPersonas.Admin)
+                {
+                    if (!IsPostBack)
+                    {
+                        this.LoadGrid();
+                        Label mpLabel;
+                        mpLabel = (Label)Master.FindControl("MenuItemLabel");
+                        if (mpLabel != null)
+                        {
+                            mpLabel.Visible = true;
+                            mpLabel.Text = "Planes";
+                        }
+                    }
                 }
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
         }
+
+       
         private void LoadGrid()
         {
 

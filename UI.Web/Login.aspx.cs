@@ -13,11 +13,14 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["inputText"] == null)
-            //{
-            //    Session["inputText"] = "";
-            //}
-            //estadolbl.Text = string.Format("inputText en sesión: '{0}'", Session["inputText"].ToString());
+            if (!IsPostBack)
+            {
+                if (this.Session["usuario"] != null)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+            }
+            
         }
 
         protected void lnkRecordarClave_Click(object sender, EventArgs e)

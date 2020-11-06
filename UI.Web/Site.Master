@@ -60,14 +60,8 @@
             
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
-           
-            <asp:ContentPlaceHolder ID="footer" runat="server">
-                <footer class="footer bg-light">
-                    <div class="container">
-                        <span class="text-muted">Sistema Académico (grupo 04)</span>
-                    </div>
-                </footer>
-            </asp:ContentPlaceHolder>
+          
+
         </form>
     </body>
 </html>

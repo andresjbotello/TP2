@@ -91,24 +91,40 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Usuario usu = (Usuario)this.Session["usuario"];
+            PersonaLogic plo = new PersonaLogic();
+            if (usu != null)
             {
-                this.LoadGrid();
-                Label mpLabel;
-                mpLabel = (Label)Master.FindControl("MenuItemLabel");
-                if (mpLabel != null)
+                Persona p = plo.GetOne(usu.ID);
+                if (p.TipoPersona == Persona.TipoPersonas.Alumno || p.TipoPersona == Persona.TipoPersonas.Admin)
                 {
-                    mpLabel.Visible = true;
-                    mpLabel.Text = "Inscripciones";
+                    if (!IsPostBack)
+                    {
+                        this.LoadGrid();
+                        Label mpLabel;
+                        mpLabel = (Label)Master.FindControl("MenuItemLabel");
+                        if (mpLabel != null)
+                        {
+                            mpLabel.Visible = true;
+                            mpLabel.Text = "Inscripciones";
+                        }
+                        Persona pers = PLogic.GetOne(usu.IdPersona);
+                        if (pers.TipoPersona != Persona.TipoPersonas.Profesor && pers.TipoPersona != Persona.TipoPersonas.Admin)
+                        {
+                            ddlAlumno.Enabled = false;
+                            ddlCurso.Enabled = false;
+                            lbEditar.Visible = false;
+                        }
+                    }
                 }
-                Usuario usu = (Usuario)this.Session["usuario"];
-                Persona pers = PLogic.GetOne(usu.IdPersona);
-                if (pers.TipoPersona != Persona.TipoPersonas.Profesor && pers.TipoPersona != Persona.TipoPersonas.Admin)
+                if (p.TipoPersona == Persona.TipoPersonas.Profesor)
                 {
-                    ddlAlumno.Enabled = false;
-                    ddlCurso.Enabled = false;
-                    lbEditar.Visible = false;
+                    Response.Redirect("Home.aspx");
                 }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
             }
         }
 
@@ -217,7 +233,15 @@ namespace UI.Web
 
             inscripcion.IDCurso = Convert.ToInt32(this.ddlCurso.SelectedValue);
             inscripcion.CondicionActual = ddlCondicion.SelectedValue;
-            inscripcion.Nota = Convert.ToInt32(tbNota.Text);
+            if(inscripcion.CondicionActual == "Regular" || inscripcion.CondicionActual == "Libre")
+            {
+                tbNota.Visible = false;
+            }
+            else
+            {
+                inscripcion.Nota = Convert.ToInt32(tbNota.Text);
+            }
+            
         }
 
         private void SaveEntity(AlumnoInscripcion inscripcion)
