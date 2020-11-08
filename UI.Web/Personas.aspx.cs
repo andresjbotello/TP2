@@ -102,7 +102,7 @@ namespace UI.Web
             PersonaLogic plo = new PersonaLogic();
             if (usu != null)
             {
-                Persona p = plo.GetOne(usu.ID);
+                Persona p = plo.GetOne(usu.IdPersona);
                 if (p.TipoPersona == Persona.TipoPersonas.Alumno)
                 {
                     Response.Redirect("Home.aspx");

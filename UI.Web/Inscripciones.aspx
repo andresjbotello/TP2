@@ -53,12 +53,12 @@
         <br />
         <asp:Label ID="Label6" runat="server" Text="Condicion"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="ddlCondicion" runat="server" Height="16px" Width="126px">
+        <asp:DropDownList ID="ddlCondicion" runat="server" Height="16px" Width="126px" AutoPostBack="True" OnSelectedIndexChanged="ddlCondicion_SelectedIndexChanged">
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbNota" ErrorMessage="Debe colocar una  nota entre 0 y 10" ValidationGroup="vgIns">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="Label7" runat="server" Text="Nota"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbNota" runat="server" TextMode="Number"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbNota" runat="server" Min="1" Max="10" MaxLength="2" TextMode="Number" ></asp:TextBox>
         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="tbNota" Display="None" ErrorMessage="La nota debe ser entre 0 y 10" ForeColor="Red" MaximumValue="10" MinimumValue="0" SetFocusOnError="True" Type="Integer" ValidationGroup="vgIns">*</asp:RangeValidator>
         <br />
         <br />

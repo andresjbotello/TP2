@@ -95,7 +95,7 @@ namespace UI.Web
             PersonaLogic plo = new PersonaLogic();
             if (usu != null)
             {
-                Persona p = plo.GetOne(usu.ID);
+                Persona p = plo.GetOne(usu.IdPersona);
                 if (p.TipoPersona == Persona.TipoPersonas.Alumno || p.TipoPersona == Persona.TipoPersonas.Admin)
                 {
                     if (!IsPostBack)
@@ -111,9 +111,16 @@ namespace UI.Web
                         Persona pers = PLogic.GetOne(usu.IdPersona);
                         if (pers.TipoPersona != Persona.TipoPersonas.Profesor && pers.TipoPersona != Persona.TipoPersonas.Admin)
                         {
+                            lbEditar.Visible = false;
+                            lbNuevo.Visible = false;
+                            lbEliminar.Visible = false;
+                        }
+                        else
+                        {
                             ddlAlumno.Enabled = false;
                             ddlCurso.Enabled = false;
-                            lbEditar.Visible = false;
+                            lbEditar.Visible = true;
+                            
                         }
                     }
                 }
@@ -192,6 +199,7 @@ namespace UI.Web
             this.cargaListaAlumnos();
             this.cargaListaCursos();
             this.cargaListaCondiciones();
+            this.tbNota.Visible = false;
         }
 
         private void cargaListaCursos()
@@ -256,7 +264,7 @@ namespace UI.Web
             this.tbNota.Enabled = enable;
             Usuario usu = (Usuario)this.Session["usuario"];
             Persona pers = PLogic.GetOne(usu.IdPersona);
-            if (pers.TipoPersona == Persona.TipoPersonas.Alumno)
+            if (pers.TipoPersona.Equals(Persona.TipoPersonas.Alumno))
             {
                 this.ddlAlumno.Visible = false;
             }
@@ -327,17 +335,16 @@ namespace UI.Web
             this.tbNota.Text = string.Empty;
         }
 
-        //private bool validar()
-        //{
-        //    if (Convert.ToInt32(tbNota) >= 0 && Convert.ToInt32(tbNota.Text) <= 10)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-
+        protected void ddlCondicion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.ddlCondicion.SelectedValue == "Aprobado")
+            {
+                this.tbNota.Visible = true;
+            }
+            else
+            {
+                this.tbNota.Visible = false;
+            }
+        }
     }
 }

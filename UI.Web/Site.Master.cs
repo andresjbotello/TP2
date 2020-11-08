@@ -20,7 +20,7 @@ namespace UI.Web
             Usuario usu = (Usuario)this.Session["usuario"];
             this.lbNombreUsuario.Text = String.Concat(usu.Apellido, ", ", usu.Nombre);
             PersonaLogic plo = new PersonaLogic();
-            Persona p = plo.GetOne(usu.ID);
+            Persona p = plo.GetOne(usu.IdPersona);
             this.lbTipo.Text = p.TipoPersona.ToString();
         }
 

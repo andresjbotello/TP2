@@ -18,8 +18,8 @@
                             <li runat="server" id="liMaterias"><a href="Materias.aspx">Materias</a></li>
                             <li runat="server" id="liCursos"><a href="Cursos.aspx">Cursos</a></li>
                             <li runat="server" id="liComisiones"><a href="Comisiones.aspx">Comisiones</a></li>
-                            <li runat="server" id="liInscripciones"><a href="Inscripciones.aspx">Incripciones</a></li>
-                            <li runat="server" id="liInscripcionesDC"><a href="DocentesCursos.aspx">Incripciones Docentes a Cursos</a></li>
+                            <li runat="server" id="liInscripciones"><a href="Inscripciones.aspx">Inscripciones</a></li>
+                            <li runat="server" id="liInscripcionesDC"><a href="DocentesCursos.aspx">Inscripciones Docentes a Cursos</a></li>
 			            </ul>
 		            </div>
                 </div>
